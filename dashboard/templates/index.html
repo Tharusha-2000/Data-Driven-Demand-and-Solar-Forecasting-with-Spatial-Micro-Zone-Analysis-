@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nugegoda Electricity Demand Forecasting Dashboard — Prophet-based 24-hour and 7-day demand predictions for LECO Smart Meter Data.">
+    <meta name="description"
+        content="Nugegoda Electricity Demand Forecasting Dashboard — Prophet-based 24-hour and 7-day demand predictions for LECO Smart Meter Data.">
     <title>⚡ Nugegoda Demand Forecast Dashboard</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.1.0/dist/chartjs-plugin-annotation.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.1.0/dist/chartjs-plugin-annotation.min.js"></script>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
 
     <!-- ── LOADING OVERLAY ── -->
@@ -33,24 +39,24 @@
             <div class="header-left">
                 <div class="logo-icon">⚡</div>
                 <div>
-                    <h1 id="main-heading">Demand Forecast Dashboard</h1>
-                    <p class="header-subtitle">Nugegoda · LECO Smart Meter · Prophet Model</p>
+                    <h1 id="main-heading">PowerInsight</h1>
+                    <p class="header-subtitle">Nugegoda · LECO Smart Meter </p>
                 </div>
             </div>
 
             <!-- Navigation -->
             <nav class="main-nav" id="main-nav">
                 <a href="#" class="nav-link active" id="nav-home" onclick="showPage('home', this)">
-                    <span class="nav-icon">🏠</span> Home
+                    <span class="nav-icon">⚡</span> Electricity Demand
                 </a>
                 <a href="#" class="nav-link" id="nav-products" onclick="showPage('products', this)">
-                    <span class="nav-icon">📦</span> Products
+                    <span class="nav-icon">☀️</span> Solar Generation
                 </a>
                 <a href="#" class="nav-link" id="nav-orders" onclick="showPage('orders', this)">
-                    <span class="nav-icon">🛒</span> Orders
+                    <span class="nav-icon">🗺️</span> Spatial Micro-Zone Analysis
                 </a>
                 <a href="#" class="nav-link" id="nav-contact" onclick="showPage('contact', this)">
-                    <span class="nav-icon">✉️</span> Contact
+                    <span class="nav-icon">📊</span> Overview Dashboard
                 </a>
             </nav>
 
@@ -68,49 +74,47 @@
 
         <!-- Mobile Nav -->
         <nav class="mobile-nav hidden" id="mobile-nav">
-            <a href="#" class="mobile-nav-link" onclick="showPage('home', null); toggleMobileMenu()">🏠 Home</a>
-            <a href="#" class="mobile-nav-link" onclick="showPage('products', null); toggleMobileMenu()">📦 Products</a>
-            <a href="#" class="mobile-nav-link" onclick="showPage('orders', null); toggleMobileMenu()">🛒 Orders</a>
-            <a href="#" class="mobile-nav-link" onclick="showPage('contact', null); toggleMobileMenu()">✉️ Contact</a>
+            <a href="#" class="mobile-nav-link" onclick="showPage('home', null); toggleMobileMenu()">⚡ Electricity
+                Demand</a>
+            <a href="#" class="mobile-nav-link" onclick="showPage('products', null); toggleMobileMenu()">☀️ Solar
+                Generation</a>
+            <a href="#" class="mobile-nav-link" onclick="showPage('orders', null); toggleMobileMenu()">🗺️ Spatial
+                Micro-Zone Analysis</a>
+            <a href="#" class="mobile-nav-link" onclick="showPage('contact', null); toggleMobileMenu()">📊 Overview
+                Dashboard</a>
         </nav>
     </header>
 
     <!-- ══════════════════════════════════════════ -->
-    <!-- PAGE: HOME (Dashboard)                     -->
+    <!-- PAGE: HOME (Electricity Demand Forecast)   -->
     <!-- ══════════════════════════════════════════ -->
     <main class="main-content page-content" id="page-home">
 
         <!-- CONTROL PANEL -->
         <section class="control-panel glass-card" id="control-panel">
             <h2 class="section-title">
-                <span class="section-icon">🎛️</span>
-                Forecast Controls
+                <span class="section-icon">⚡</span>
+                24-Hour Electricity Demand Forecast
             </h2>
-            <div class="controls-grid">
+            <p style="color:var(--text-secondary);font-size:0.88rem;margin:0.25rem 0 1.25rem;">
+                Select any date within the next 7 days. weather
+                are loaded automatically from live data.
+            </p>
+            <div class="controls-grid" style="grid-template-columns:1fr auto;">
                 <div class="control-group">
                     <label for="forecast-date" class="control-label">Forecast Date</label>
-                    <input type="date" id="forecast-date" class="control-input" value="2026-06-05">
+                    <input type="date" id="forecast-date" class="control-input">
                 </div>
-                <div class="control-group">
-                    <label for="scenario-select" class="control-label">Scenario</label>
-                    <select id="scenario-select" class="control-input">
-                        <option value="weekday">Weekday</option>
-                        <option value="weekend">Weekend</option>
-                        <option value="holiday">Public Holiday</option>
-                    </select>
-                </div>
-                <div class="control-group buttons-group">
+                <div class="control-group buttons-group" style="align-self:flex-end; display:flex; gap:0.75rem;">
                     <button id="btn-single" class="btn btn-primary" onclick="fetchSingleForecast()">
-                        <span class="btn-icon">📈</span> 24h Forecast
+                        <span class="btn-icon">📈</span> Generate Forecast
                     </button>
-                    <button id="btn-compare" class="btn btn-secondary" onclick="fetchComparison()">
-                        <span class="btn-icon">⚖️</span> Compare All
-                    </button>
-                    <button id="btn-weekly" class="btn btn-accent" onclick="fetchWeeklyForecast()">
-                        <span class="btn-icon">📅</span> 7-Day Forecast
-                    </button>
+
                 </div>
             </div>
+
+            <!-- Available dates hint -->
+            <div id="available-dates-hint" style="margin-top:0.75rem;font-size:0.8rem;color:var(--text-muted);"></div>
         </section>
 
         <!-- KPI CARDS -->
@@ -137,418 +141,213 @@
                     <div class="kpi-content">
                         <span class="kpi-value" id="kpi-avg-value">—</span>
                         <span class="kpi-label">Avg Demand (kW)</span>
-                        <span class="kpi-detail" id="kpi-avg-detail">—</span>
+                        <span class="kpi-detail" id="kpi-avg-detail">24-hour mean</span>
                     </div>
                 </div>
                 <div class="kpi-card glass-card" id="kpi-scenario">
                     <div class="kpi-icon kpi-icon-scenario">🏷️</div>
                     <div class="kpi-content">
                         <span class="kpi-value" id="kpi-scenario-value">—</span>
-                        <span class="kpi-label">Active Scenario</span>
-                        <span class="kpi-detail" id="kpi-scenario-detail">—</span>
+                        <span class="kpi-label">Day Type</span>
+                        <span class="kpi-detail" id="kpi-scenario-detail">Auto-detected</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SINGLE FORECAST CHART -->
+        <!-- FORECAST CHART + TEMPERATURE OVERLAY -->
         <section class="chart-section glass-card" id="single-chart-section">
             <div class="chart-header">
                 <h2 class="section-title">
                     <span class="section-icon">📈</span>
                     <span id="single-chart-title">24-Hour Demand Forecast</span>
                 </h2>
-                <span class="chart-badge" id="single-chart-badge">Select a date &amp; scenario</span>
+                <span class="chart-badge" id="single-chart-badge">Select a date above</span>
             </div>
-            <div class="chart-container">
+            <div class="chart-container" style="position:relative;">
                 <canvas id="singleChart"></canvas>
             </div>
         </section>
 
-        <!-- SCENARIO COMPARISON CHART -->
-        <section class="chart-section glass-card" id="compare-chart-section">
+
+
+        <!-- HOURLY WEATHER & DEMAND TABLE -->
+        <section class="chart-section glass-card" id="hourly-table-section" style="display:none;">
+            <div class="chart-header">
+                <h2 class="section-title">
+                    <span class="section-icon">🌡️</span>
+                    Hourly Breakdown — Demand
+                </h2>
+                <span class="chart-badge" id="hourly-table-badge">24 hours</span>
+            </div>
+            <div class="orders-table-wrapper">
+                <table class="comparison-table orders-table" id="hourly-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Forecast (kW)</th>
+                            <th>Lower CI</th>
+                            <th>Upper CI</th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="hourly-table-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SCENARIO COMPARISON SECTION -->
+        <section class="chart-section glass-card" id="compare-chart-section" style="margin-top:2rem;">
             <div class="chart-header">
                 <h2 class="section-title">
                     <span class="section-icon">⚖️</span>
-                    <span id="compare-chart-title">Scenario Comparison</span>
+                    <span id="compare-chart-title">Scenario Comparison — Weekday vs Weekend vs Holiday</span>
                 </h2>
-                <span class="chart-badge" id="compare-chart-badge">Weekday vs Weekend vs Holiday</span>
+                <div style="display:flex; align-items:center; gap:0.75rem;">
+                    <button id="btn-compare-section" class="btn btn-secondary" onclick="fetchCompareForecast()"
+                        style="padding:0.4rem 0.85rem; font-size:0.82rem;">
+                        <span class="btn-icon">⚖️</span> Compare Scenarios
+                    </button>
+                    <span class="chart-badge" id="compare-chart-badge">3 Scenarios</span>
+                </div>
             </div>
-            <div class="chart-container">
+            <div class="chart-container" style="position:relative; height:380px;">
                 <canvas id="compareChart"></canvas>
             </div>
-            <div class="comparison-table-wrapper" id="comparison-table-wrapper" style="display:none;">
-                <h3 class="table-title">📋 Peak Demand by Scenario</h3>
-                <table class="comparison-table" id="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Scenario</th><th>Peak (kW)</th><th>Peak Time</th><th>Min (kW)</th><th>Avg (kW)</th>
-                        </tr>
-                    </thead>
-                    <tbody id="comparison-table-body"></tbody>
-                </table>
-            </div>
-        </section>
 
-        <!-- 7-DAY FORECAST CHART -->
-        <section class="chart-section glass-card" id="weekly-chart-section">
-            <div class="chart-header">
-                <h2 class="section-title">
-                    <span class="section-icon">📅</span>
-                    <span id="weekly-chart-title">7-Day Rolling Forecast</span>
-                </h2>
-                <span class="chart-badge" id="weekly-chart-badge">168-hour forecast</span>
-            </div>
-            <div class="chart-container chart-container-wide">
-                <canvas id="weeklyChart"></canvas>
-            </div>
-            <div class="comparison-table-wrapper" id="daily-peaks-wrapper" style="display:none;">
-                <h3 class="table-title">📋 Daily Peak Summary</h3>
-                <table class="comparison-table" id="daily-peaks-table">
-                    <thead>
-                        <tr>
-                            <th>Date</th><th>Day</th><th>Type</th><th>Peak (kW)</th><th>Peak Time</th><th>Avg (kW)</th>
-                        </tr>
-                    </thead>
-                    <tbody id="daily-peaks-body"></tbody>
-                </table>
+            <!-- COMPARISON SUMMARY CARDS / TABLE -->
+            <div id="compare-summary-wrapper" style="margin-top:1.5rem;">
+                <h3
+                    style="font-size:1rem; font-weight:600; color:var(--text-primary); margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">
+                    <span>📊</span> Comparative Scenario Metrics
+                </h3>
+                <div class="kpi-grid" id="compare-cards-grid"
+                    style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1.25rem;">
+                    <!-- Populated dynamically by JS -->
+                </div>
             </div>
         </section>
 
     </main>
 
     <!-- ══════════════════════════════════════════ -->
-    <!-- PAGE: PRODUCTS                             -->
+    <!-- PAGE: Solar Generation                     -->
     <!-- ══════════════════════════════════════════ -->
     <main class="main-content page-content hidden" id="page-products">
 
-        <section class="page-hero glass-card">
-            <div class="page-hero-content">
-                <div class="page-hero-icon">📦</div>
-                <h2 class="page-hero-title">Forecast Products</h2>
-                <p class="page-hero-desc">Explore our suite of AI-powered electricity demand and solar forecasting solutions tailored for smart grid operators.</p>
-            </div>
-        </section>
 
-        <section class="products-grid-section">
-            <div class="products-grid">
-
-                <div class="product-card glass-card">
-                    <div class="product-badge product-badge-blue">Most Popular</div>
-                    <div class="product-icon">📈</div>
-                    <h3 class="product-name">24-Hour Demand Forecast</h3>
-                    <p class="product-desc">Hourly electricity demand predictions for the next 24 hours using Facebook Prophet. Supports weekday, weekend, and holiday scenarios.</p>
-                    <ul class="product-features">
-                        <li>✔ Hourly granularity</li>
-                        <li>✔ Confidence intervals</li>
-                        <li>✔ 3 scenario modes</li>
-                        <li>✔ Real-time KPI metrics</li>
-                    </ul>
-                    <div class="product-price">Free <span class="price-unit">/ request</span></div>
-                    <button class="btn btn-primary product-btn" onclick="showPage('home', document.getElementById('nav-home'))">
-                        Launch Forecast →
-                    </button>
-                </div>
-
-                <div class="product-card glass-card product-card-featured">
-                    <div class="product-badge product-badge-purple">Premium</div>
-                    <div class="product-icon">📅</div>
-                    <h3 class="product-name">7-Day Rolling Forecast</h3>
-                    <p class="product-desc">Full 168-hour forecast with daily peak summaries, automatic day-type detection, and trend visualisations for weekly planning.</p>
-                    <ul class="product-features">
-                        <li>✔ 7-day horizon</li>
-                        <li>✔ Daily peak table</li>
-                        <li>✔ Weekend auto-detection</li>
-                        <li>✔ Interactive charts</li>
-                    </ul>
-                    <div class="product-price">Free <span class="price-unit">/ request</span></div>
-                    <button class="btn btn-secondary product-btn" onclick="showPage('home', document.getElementById('nav-home'))">
-                        Launch Forecast →
-                    </button>
-                </div>
-
-                <div class="product-card glass-card">
-                    <div class="product-badge product-badge-emerald">New</div>
-                    <div class="product-icon">☀️</div>
-                    <h3 class="product-name">Solar Generation Forecast</h3>
-                    <p class="product-desc">Micro-zone solar irradiance and generation forecasting using spatial analysis and satellite imagery for Nugegoda distribution areas.</p>
-                    <ul class="product-features">
-                        <li>✔ Spatial micro-zones</li>
-                        <li>✔ Irradiance modelling</li>
-                        <li>✔ Cloud cover integration</li>
-                        <li>✔ PV output estimation</li>
-                    </ul>
-                    <div class="product-price">Coming Soon</div>
-                    <button class="btn btn-accent product-btn" disabled style="opacity:0.5;cursor:not-allowed;">
-                        Coming Soon
-                    </button>
-                </div>
-
-                <div class="product-card glass-card">
-                    <div class="product-badge product-badge-amber">Enterprise</div>
-                    <div class="product-icon">🗺️</div>
-                    <h3 class="product-name">Spatial Zone Analysis</h3>
-                    <p class="product-desc">Granular electricity demand mapping across Nugegoda's spatial micro-zones for targeted grid infrastructure planning.</p>
-                    <ul class="product-features">
-                        <li>✔ Zone-level demand maps</li>
-                        <li>✔ Heat-map visualisation</li>
-                        <li>✔ Load density reports</li>
-                        <li>✔ GIS export support</li>
-                    </ul>
-                    <div class="product-price">Contact Us</div>
-                    <button class="btn btn-primary product-btn" onclick="showPage('contact', document.getElementById('nav-contact'))">
-                        Get in Touch →
-                    </button>
-                </div>
-
-            </div>
-        </section>
 
     </main>
 
     <!-- ══════════════════════════════════════════ -->
-    <!-- PAGE: ORDERS                               -->
+    <!-- PAGE: Spatial Micro-Zone Analysis          -->
     <!-- ══════════════════════════════════════════ -->
     <main class="main-content page-content hidden" id="page-orders">
 
-        <section class="page-hero glass-card">
-            <div class="page-hero-content">
-                <div class="page-hero-icon">🛒</div>
-                <h2 class="page-hero-title">Forecast Orders</h2>
-                <p class="page-hero-desc">Track and manage your submitted forecast requests and scheduled analysis jobs.</p>
-            </div>
+
+
+    </main>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- PAGE: Overview Dashboard                   -->
+    <!-- ══════════════════════════════════════════ -->
+    <main class="main-content page-content hidden" id="page-contact">
+
+        <!-- OVERVIEW CONTROL PANEL / HEADER -->
+        <section class="control-panel glass-card">
+            <h2 class="section-title">
+                <span class="section-icon">📊</span>
+                Overview Dashboard — 7-Day Demand Forecast
+            </h2>
+            <p style="color:var(--text-secondary);font-size:0.88rem;margin:0.25rem 0 0;">
+                Comprehensive 7-day lookahead displaying total daily electricity demand, peak loads, and consumption trends for Nugegoda.
+            </p>
         </section>
 
-        <!-- Order Stats -->
-        <section class="kpi-section">
+        <!-- KPI SUMMARY CARDS -->
+        <section class="kpi-section" style="margin-top:1.5rem;">
             <div class="kpi-grid">
                 <div class="kpi-card glass-card">
-                    <div class="kpi-icon" style="background:rgba(0,212,255,0.12);font-size:1.8rem;">📋</div>
+                    <div class="kpi-icon kpi-icon-peak">⚡</div>
                     <div class="kpi-content">
-                        <span class="kpi-value" style="font-size:1.8rem;">12</span>
-                        <span class="kpi-label">Total Orders</span>
-                        <span class="kpi-detail">This month</span>
+                        <span class="kpi-value" id="overview-7day-total">—</span>
+                        <span class="kpi-label">7-Day Total Demand</span>
+                        <span class="kpi-detail">Cumulative 168-hour kWh</span>
                     </div>
                 </div>
                 <div class="kpi-card glass-card">
-                    <div class="kpi-icon" style="background:rgba(16,185,129,0.12);font-size:1.8rem;">✅</div>
+                    <div class="kpi-icon kpi-icon-avg">📊</div>
                     <div class="kpi-content">
-                        <span class="kpi-value" style="font-size:1.8rem;">9</span>
-                        <span class="kpi-label">Completed</span>
-                        <span class="kpi-detail">Successfully delivered</span>
+                        <span class="kpi-value" id="overview-daily-avg">—</span>
+                        <span class="kpi-label">Avg Daily Demand</span>
+                        <span class="kpi-detail">Mean daily kWh</span>
                     </div>
                 </div>
                 <div class="kpi-card glass-card">
-                    <div class="kpi-icon" style="background:rgba(245,158,11,0.12);font-size:1.8rem;">⏳</div>
+                    <div class="kpi-icon kpi-icon-scenario">🔥</div>
                     <div class="kpi-content">
-                        <span class="kpi-value" style="font-size:1.8rem;">2</span>
-                        <span class="kpi-label">Processing</span>
-                        <span class="kpi-detail">In progress</span>
+                        <span class="kpi-value" id="overview-max-day">—</span>
+                        <span class="kpi-label">Peak Demand Day</span>
+                        <span class="kpi-detail" id="overview-max-day-detail">—</span>
                     </div>
                 </div>
                 <div class="kpi-card glass-card">
-                    <div class="kpi-icon" style="background:rgba(244,63,94,0.12);font-size:1.8rem;">❌</div>
+                    <div class="kpi-icon kpi-icon-min">📉</div>
                     <div class="kpi-content">
-                        <span class="kpi-value" style="font-size:1.8rem;">1</span>
-                        <span class="kpi-label">Failed</span>
-                        <span class="kpi-detail">Needs attention</span>
+                        <span class="kpi-value" id="overview-min-day">—</span>
+                        <span class="kpi-label">Lowest Demand Day</span>
+                        <span class="kpi-detail" id="overview-min-day-detail">—</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Orders Table -->
-        <section class="chart-section glass-card">
+        <!-- 7-DAY DEMAND CHART -->
+        <section class="chart-section glass-card" style="margin-top:1.5rem;">
             <div class="chart-header">
-                <h2 class="section-title"><span class="section-icon">📋</span> Recent Orders</h2>
-                <button class="btn btn-primary" style="padding:0.5rem 1rem;font-size:0.8rem;" onclick="showPage('home', document.getElementById('nav-home'))">
-                    + New Forecast
-                </button>
+                <h2 class="section-title">
+                    <span class="section-icon">📈</span>
+                    <span>7-Day Total Daily Electricity Demand</span>
+                </h2>
+                <span class="chart-badge">7-Day Rolling Horizon</span>
             </div>
+            <div class="chart-container" style="position:relative; height:380px;">
+                <canvas id="overview7DayChart"></canvas>
+            </div>
+        </section>
 
+        <!-- 7-DAY DAILY BREAKDOWN TABLE -->
+        <section class="chart-section glass-card" style="margin-top:1.5rem;">
+            <div class="chart-header">
+                <h2 class="section-title">
+                    <span class="section-icon">📋</span>
+                    Daily Demand Summary — 7 Days
+                </h2>
+                <span class="chart-badge">Daily Totals</span>
+            </div>
             <div class="orders-table-wrapper">
                 <table class="comparison-table orders-table">
                     <thead>
                         <tr>
-                            <th>Order ID</th>
-                            <th>Type</th>
                             <th>Date</th>
-                            <th>Scenario</th>
-                            <th>Status</th>
-                            <th>Result</th>
+                            <th>Day Type</th>
+                            <th>Total Demand (kWh)</th>
+                            <th>Peak Load (kW)</th>
+                            <th>Peak Time</th>
+                            <th>Min Load (kW)</th>
+                            <th>Avg Load (kW)</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td><span class="order-id">#ORD-0012</span></td>
-                            <td>7-Day Forecast</td>
-                            <td>2026-07-21</td>
-                            <td>Auto-detect</td>
-                            <td><span class="status-pill status-done">Completed</span></td>
-                            <td><button class="btn-link">View →</button></td>
-                        </tr>
-                        <tr>
-                            <td><span class="order-id">#ORD-0011</span></td>
-                            <td>24h Forecast</td>
-                            <td>2026-07-20</td>
-                            <td>Weekend</td>
-                            <td><span class="status-pill status-done">Completed</span></td>
-                            <td><button class="btn-link">View →</button></td>
-                        </tr>
-                        <tr>
-                            <td><span class="order-id">#ORD-0010</span></td>
-                            <td>Comparison</td>
-                            <td>2026-07-20</td>
-                            <td>All Scenarios</td>
-                            <td><span class="status-pill status-processing">Processing</span></td>
-                            <td><span style="color:var(--text-muted)">—</span></td>
-                        </tr>
-                        <tr>
-                            <td><span class="order-id">#ORD-0009</span></td>
-                            <td>24h Forecast</td>
-                            <td>2026-07-19</td>
-                            <td>Public Holiday</td>
-                            <td><span class="status-pill status-processing">Processing</span></td>
-                            <td><span style="color:var(--text-muted)">—</span></td>
-                        </tr>
-                        <tr>
-                            <td><span class="order-id">#ORD-0008</span></td>
-                            <td>7-Day Forecast</td>
-                            <td>2026-07-18</td>
-                            <td>Auto-detect</td>
-                            <td><span class="status-pill status-failed">Failed</span></td>
-                            <td><button class="btn-link" style="color:var(--accent-rose)">Retry →</button></td>
-                        </tr>
-                        <tr>
-                            <td><span class="order-id">#ORD-0007</span></td>
-                            <td>24h Forecast</td>
-                            <td>2026-07-17</td>
-                            <td>Weekday</td>
-                            <td><span class="status-pill status-done">Completed</span></td>
-                            <td><button class="btn-link">View →</button></td>
-                        </tr>
-                        <tr>
-                            <td><span class="order-id">#ORD-0006</span></td>
-                            <td>Comparison</td>
-                            <td>2026-07-16</td>
-                            <td>All Scenarios</td>
-                            <td><span class="status-pill status-done">Completed</span></td>
-                            <td><button class="btn-link">View →</button></td>
-                        </tr>
-                    </tbody>
+                    <tbody id="overview-7day-table-body"></tbody>
                 </table>
             </div>
         </section>
-
-    </main>
-
-    <!-- ══════════════════════════════════════════ -->
-    <!-- PAGE: CONTACT                              -->
-    <!-- ══════════════════════════════════════════ -->
-    <main class="main-content page-content hidden" id="page-contact">
-
-        <section class="page-hero glass-card">
-            <div class="page-hero-content">
-                <div class="page-hero-icon">✉️</div>
-                <h2 class="page-hero-title">Get in Touch</h2>
-                <p class="page-hero-desc">Have questions about our forecasting products or need a custom solution? Reach out to our team.</p>
-            </div>
-        </section>
-
-        <div class="contact-layout">
-
-            <!-- Contact Info -->
-            <section class="contact-info-section">
-                <div class="contact-info-card glass-card">
-                    <h3 class="contact-info-title">Contact Information</h3>
-                    <div class="contact-info-list">
-                        <div class="contact-info-item">
-                            <div class="contact-info-icon">📍</div>
-                            <div>
-                                <div class="contact-info-label">Location</div>
-                                <div class="contact-info-value">Nugegoda, Western Province<br>Sri Lanka</div>
-                            </div>
-                        </div>
-                        <div class="contact-info-item">
-                            <div class="contact-info-icon">📧</div>
-                            <div>
-                                <div class="contact-info-label">Email</div>
-                                <div class="contact-info-value">forecast@leco-nugegoda.lk</div>
-                            </div>
-                        </div>
-                        <div class="contact-info-item">
-                            <div class="contact-info-icon">📞</div>
-                            <div>
-                                <div class="contact-info-label">Phone</div>
-                                <div class="contact-info-value">+94 11 2 856 000</div>
-                            </div>
-                        </div>
-                        <div class="contact-info-item">
-                            <div class="contact-info-icon">🕐</div>
-                            <div>
-                                <div class="contact-info-label">Working Hours</div>
-                                <div class="contact-info-value">Mon–Fri, 8:30 AM – 5:00 PM</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-info-card glass-card" style="margin-top:1.5rem;">
-                    <h3 class="contact-info-title">About This System</h3>
-                    <p style="color:var(--text-secondary);font-size:0.88rem;line-height:1.7;margin-top:0.75rem;">
-                        This dashboard uses the <strong style="color:var(--text-primary);">Facebook Prophet</strong> model trained on LECO smart meter data
-                        from the Nugegoda distribution area to provide accurate electricity demand forecasts.
-                        Contact us for custom integrations, API access, or enterprise deployments.
-                    </p>
-                </div>
-            </section>
-
-            <!-- Contact Form -->
-            <section class="contact-form-section glass-card">
-                <h3 class="section-title" style="margin-bottom:1.5rem;">
-                    <span class="section-icon">📝</span> Send a Message
-                </h3>
-                <form class="contact-form" id="contact-form" onsubmit="handleContactSubmit(event)">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="control-label" for="contact-name">Full Name</label>
-                            <input type="text" id="contact-name" class="control-input" placeholder="Your name" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" for="contact-email">Email Address</label>
-                            <input type="email" id="contact-email" class="control-input" placeholder="you@example.com" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label" for="contact-subject">Subject</label>
-                        <select id="contact-subject" class="control-input">
-                            <option value="general">General Inquiry</option>
-                            <option value="product">Product Information</option>
-                            <option value="enterprise">Enterprise / API Access</option>
-                            <option value="support">Technical Support</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label" for="contact-message">Message</label>
-                        <textarea id="contact-message" class="control-input contact-textarea" placeholder="Describe your inquiry…" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
-                        <span class="btn-icon">🚀</span> Send Message
-                    </button>
-                    <div id="contact-success" class="contact-success hidden">
-                        ✅ Message sent successfully! We'll get back to you within 24 hours.
-                    </div>
-                </form>
-            </section>
-
-        </div>
 
     </main>
 
     <!-- ── FOOTER ── -->
     <footer class="footer">
-        <p>Nugegoda Demand Forecasting · Prophet Model · LECO Smart Meter Data</p>
+        <p>Nugegoda Demand Forecasting · Solar genaration · Spatial Micro-Zone Analysis · LECO Smart Meter Data</p>
     </footer>
 
     <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
@@ -588,4 +387,5 @@
         }
     </script>
 </body>
+
 </html>

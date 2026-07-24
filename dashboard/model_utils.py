@@ -15,13 +15,13 @@ from prophet.serialize import model_from_json
 # Average temperature by hour (°C) — Nugegoda
 # Tropical climate profile derived from training data
 # ──────────────────────────────────────────────
+
 AVG_TEMP_BY_HOUR = {
     0: 25.2, 1: 25, 2: 24.4, 3: 24.1, 4: 23.9, 5: 24,
-    6: 23.9, 7: 24.8, 8: 26.8, 9: 28.3, 10: 29.1, 11: 30.6,
-    12: 31.4, 13: 30.8, 14: 29.1, 15: 28.2, 16: 26.5, 17: 27.2,
+    6: 22.6, 7: 25.0, 8: 26.4, 9: 28.5, 10: 30.4, 11: 31.8,
+    12: 32.8, 13: 32.4, 14: 31.5, 15: 30.2, 16: 29.0, 17: 28.2,
     18: 26.4, 19: 26.1, 20: 26, 21: 25.4, 22: 25.1, 23: 25.5 
 }
-
 
 def add_day_type(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -156,7 +156,6 @@ def make_7day_forecast(model, start_datetime: str = None) -> dict:
 
     future['hour'] = future['ds'].dt.hour
     future['day'] = future['ds'].dt.dayofweek
-    future['Temperature'] = future['hour'].map(AVG_TEMP_BY_HOUR)
     future['is_weekend'] = future['day'].apply(lambda x: 1 if x >= 5 else 0)
     future['is_public_holiday'] = 0
     future = add_day_type(future)
