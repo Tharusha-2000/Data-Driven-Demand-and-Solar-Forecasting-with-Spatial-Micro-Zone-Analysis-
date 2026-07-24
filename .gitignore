@@ -1,0 +1,95 @@
+# ══════════════════════════════════════════════════
+# .gitignore — Nugegoda Demand Forecasting Project
+# ══════════════════════════════════════════════════
+
+
+# ── Python Virtual Environment ──────────────────
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+
+# ── Python Cache & Bytecode ──────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+
+# ── Jupyter Notebooks (checkpoints) ─────────────
+.ipynb_checkpoints/
+*.ipynb
+
+
+# ── Environment Variables / Secrets ─────────────
+.env
+.env.local
+.env.*.local
+*.env
+secrets.py
+
+
+# ── macOS System Files ───────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+Thumbs.db
+
+
+# ── IDE / Editor Files ───────────────────────────
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+
+# ── Flask / Werkzeug ─────────────────────────────
+instance/
+*.sqlite3
+*.db
+
+
+# ── Large Model / Data Files ─────────────────────
+# Uncomment below if your model JSON is too large for GitHub (>100MB)
+# electricityDemandModel.json
+
+# Raw data files (usually too large or sensitive)
+*.csv
+data/
+raw_data/
+
+
+# ── Logs ─────────────────────────────────────────
+*.log
+logs/
+
+
+# ── Distribution / Build ─────────────────────────
+dist/
+build/
+*.egg-info/
+*.egg
+site/
+
+
+# ── Testing ──────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+
+
+# ── Temporary Files ──────────────────────────────
+*.tmp
+*.bak
+*.orig
+tmp/

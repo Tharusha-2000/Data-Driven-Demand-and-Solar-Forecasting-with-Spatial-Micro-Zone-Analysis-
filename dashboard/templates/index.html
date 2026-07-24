@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Nugegoda Electricity Demand Forecasting Dashboard — Prophet-based 24-hour and 7-day demand predictions for LECO Smart Meter Data.">
+    <title>⚡ Nugegoda Demand Forecast Dashboard</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.1.0/dist/chartjs-plugin-annotation.min.js"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- ── LOADING OVERLAY ── -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="spinner-container">
+            <div class="spinner"></div>
+            <p class="spinner-text">Generating forecast…</p>
+        </div>
+    </div>
+
+    <!-- ── HEADER & NAV ── -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <div class="logo-icon">⚡</div>
+                <div>
+                    <h1 id="main-heading">PowerInsight</h1>
+                    <p class="header-subtitle">Nugegoda · LECO Smart Meter </p>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="main-nav" id="main-nav">
+                <a href="#" class="nav-link active" id="nav-home" onclick="showPage('home', this)">
+                    <span class="nav-icon">⚡</span> Electricity Demand
+                </a>
+                <a href="#" class="nav-link" id="nav-products" onclick="showPage('products', this)">
+                    <span class="nav-icon">☀️</span> Solar Generation
+                </a>
+                <a href="#" class="nav-link" id="nav-orders" onclick="showPage('orders', this)">
+                    <span class="nav-icon">🗺️</span> Spatial Micro-Zone Analysis
+                </a>
+                <a href="#" class="nav-link" id="nav-contact" onclick="showPage('contact', this)">
+                    <span class="nav-icon">📊</span> Overview Dashboard
+                </a>
+            </nav>
+
+            <div class="header-right">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    Model Active
+                </div>
+                <!-- Mobile menu button -->
+                <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav -->
+        <nav class="mobile-nav hidden" id="mobile-nav">
+            <a href="#" class="mobile-nav-link" onclick="showPage('home', null); toggleMobileMenu()">⚡ Electricity
+                Demand</a>
+            <a href="#" class="mobile-nav-link" onclick="showPage('products', null); toggleMobileMenu()">☀️ Solar
+                Generation</a>
+            <a href="#" class="mobile-nav-link" onclick="showPage('orders', null); toggleMobileMenu()">🗺️ Spatial
+                Micro-Zone Analysis</a>
+            <a href="#" class="mobile-nav-link" onclick="showPage('contact', null); toggleMobileMenu()">📊 Overview
+                Dashboard</a>
+        </nav>
+    </header>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- PAGE: HOME (Electricity Demand Forecast)   -->
+    <!-- ══════════════════════════════════════════ -->
+    <main class="main-content page-content" id="page-home">
+
+        <!-- CONTROL PANEL -->
+        <section class="control-panel glass-card" id="control-panel">
+            <h2 class="section-title">
+                <span class="section-icon">⚡</span>
+                24-Hour Electricity Demand Forecast
+            </h2>
+            <p style="color:var(--text-secondary);font-size:0.88rem;margin:0.25rem 0 1.25rem;">
+                Select any date within the next 7 days. weather
+                are loaded automatically from live data.
+            </p>
+            <div class="controls-grid" style="grid-template-columns:1fr auto;">
+                <div class="control-group">
+                    <label for="forecast-date" class="control-label">Forecast Date</label>
+                    <input type="date" id="forecast-date" class="control-input">
+                </div>
+                <div class="control-group buttons-group" style="align-self:flex-end; display:flex; gap:0.75rem;">
+                    <button id="btn-single" class="btn btn-primary" onclick="fetchSingleForecast()">
+                        <span class="btn-icon">📈</span> Generate Forecast
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- Available dates hint -->
+            <div id="available-dates-hint" style="margin-top:0.75rem;font-size:0.8rem;color:var(--text-muted);"></div>
+        </section>
+
+        <!-- KPI CARDS -->
+        <section class="kpi-section" id="kpi-section">
+            <div class="kpi-grid">
+                <div class="kpi-card glass-card" id="kpi-peak">
+                    <div class="kpi-icon kpi-icon-peak">⚡</div>
+                    <div class="kpi-content">
+                        <span class="kpi-value" id="kpi-peak-value">—</span>
+                        <span class="kpi-label">Peak Demand (kW)</span>
+                        <span class="kpi-detail" id="kpi-peak-time">—</span>
+                    </div>
+                </div>
+                <div class="kpi-card glass-card" id="kpi-min">
+                    <div class="kpi-icon kpi-icon-min">📉</div>
+                    <div class="kpi-content">
+                        <span class="kpi-value" id="kpi-min-value">—</span>
+                        <span class="kpi-label">Min Demand (kW)</span>
+                        <span class="kpi-detail" id="kpi-min-time">—</span>
+                    </div>
+                </div>
+                <div class="kpi-card glass-card" id="kpi-avg">
+                    <div class="kpi-icon kpi-icon-avg">📊</div>
+                    <div class="kpi-content">
+                        <span class="kpi-value" id="kpi-avg-value">—</span>
+                        <span class="kpi-label">Avg Demand (kW)</span>
+                        <span class="kpi-detail" id="kpi-avg-detail">24-hour mean</span>
+                    </div>
+                </div>
+                <div class="kpi-card glass-card" id="kpi-scenario">
+                    <div class="kpi-icon kpi-icon-scenario">🏷️</div>
+                    <div class="kpi-content">
+                        <span class="kpi-value" id="kpi-scenario-value">—</span>
+                        <span class="kpi-label">Day Type</span>
+                        <span class="kpi-detail" id="kpi-scenario-detail">Auto-detected</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORECAST CHART + TEMPERATURE OVERLAY -->
+        <section class="chart-section glass-card" id="single-chart-section">
+            <div class="chart-header">
+                <h2 class="section-title">
+                    <span class="section-icon">📈</span>
+                    <span id="single-chart-title">24-Hour Demand Forecast</span>
+                </h2>
+                <span class="chart-badge" id="single-chart-badge">Select a date above</span>
+            </div>
+            <div class="chart-container" style="position:relative;">
+                <canvas id="singleChart"></canvas>
+            </div>
+        </section>
+
+
+
+        <!-- HOURLY WEATHER & DEMAND TABLE -->
+        <section class="chart-section glass-card" id="hourly-table-section" style="display:none;">
+            <div class="chart-header">
+                <h2 class="section-title">
+                    <span class="section-icon">🌡️</span>
+                    Hourly Breakdown — Demand
+                </h2>
+                <span class="chart-badge" id="hourly-table-badge">24 hours</span>
+            </div>
+            <div class="orders-table-wrapper">
+                <table class="comparison-table orders-table" id="hourly-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Forecast (kW)</th>
+                            <th>Lower CI</th>
+                            <th>Upper CI</th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="hourly-table-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SCENARIO COMPARISON SECTION -->
+        <section class="chart-section glass-card" id="compare-chart-section" style="margin-top:2rem;">
+            <div class="chart-header">
+                <h2 class="section-title">
+                    <span class="section-icon">⚖️</span>
+                    <span id="compare-chart-title">Scenario Comparison — Weekday vs Weekend vs Holiday</span>
+                </h2>
+                <div style="display:flex; align-items:center; gap:0.75rem;">
+                    <button id="btn-compare-section" class="btn btn-secondary" onclick="fetchCompareForecast()"
+                        style="padding:0.4rem 0.85rem; font-size:0.82rem;">
+                        <span class="btn-icon">⚖️</span> Compare Scenarios
+                    </button>
+                    <span class="chart-badge" id="compare-chart-badge">3 Scenarios</span>
+                </div>
+            </div>
+            <div class="chart-container" style="position:relative; height:380px;">
+                <canvas id="compareChart"></canvas>
+            </div>
+
+            <!-- COMPARISON SUMMARY CARDS / TABLE -->
+            <div id="compare-summary-wrapper" style="margin-top:1.5rem;">
+                <h3
+                    style="font-size:1rem; font-weight:600; color:var(--text-primary); margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">
+                    <span>📊</span> Comparative Scenario Metrics
+                </h3>
+                <div class="kpi-grid" id="compare-cards-grid"
+                    style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:1.25rem;">
+                    <!-- Populated dynamically by JS -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- PAGE: Solar Generation                     -->
+    <!-- ══════════════════════════════════════════ -->
+    <main class="main-content page-content hidden" id="page-products">
+
+
+
+    </main>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- PAGE: Spatial Micro-Zone Analysis          -->
+    <!-- ══════════════════════════════════════════ -->
+    <main class="main-content page-content hidden" id="page-orders">
+
+
+
+    </main>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- PAGE: Overview Dashboard                   -->
+    <!-- ══════════════════════════════════════════ -->
+    <main class="main-content page-content hidden" id="page-contact">
+
+        <!-- OVERVIEW CONTROL PANEL / HEADER -->
+        <section class="control-panel glass-card">
+            <h2 class="section-title">
+                <span class="section-icon">📊</span>
+                Overview Dashboard — 7-Day Demand Forecast
+            </h2>
+            <p style="color:var(--text-secondary);font-size:0.88rem;margin:0.25rem 0 0;">
+                Comprehensive 7-day lookahead displaying total daily electricity demand, peak loads, and consumption trends for Nugegoda.
+            </p>
+        </section>
+
+        <!-- KPI SUMMARY CARDS -->
+        <section class="kpi-section" style="margin-top:1.5rem;">
+            <div class="kpi-grid">
+                <div class="kpi-card glass-card">
+                    <div class="kpi-icon kpi-icon-peak">⚡</div>
+                    <div class="kpi-content">
+                        <span class="kpi-value" id="overview-7day-total">—</span>
+                        <span class="kpi-label">7-Day Total Demand</span>
+                        <span class="kpi-detail">Cumulative 168-hour kWh</span>
+                    </div>
+                </div>
+                <div class="kpi-card glass-card">
+                    <div class="kpi-icon kpi-icon-avg">📊</div>
+                    <div class="kpi-content">
+                        <span class="kpi-value" id="overview-daily-avg">—</span>
+                        <span class="kpi-label">Avg Daily Demand</span>
+                        <span class="kpi-detail">Mean daily kWh</span>
+                    </div>
+                </div>
+                <div class="kpi-card glass-card">
+                    <div class="kpi-icon kpi-icon-scenario">🔥</div>
+                    <div class="kpi-content">
+                        <span class="kpi-value" id="overview-max-day">—</span>
+                        <span class="kpi-label">Peak Demand Day</span>
+                        <span class="kpi-detail" id="overview-max-day-detail">—</span>
+                    </div>
+                </div>
+                <div class="kpi-card glass-card">
+                    <div class="kpi-icon kpi-icon-min">📉</div>
+                    <div class="kpi-content">
+                        <span class="kpi-value" id="overview-min-day">—</span>
+                        <span class="kpi-label">Lowest Demand Day</span>
+                        <span class="kpi-detail" id="overview-min-day-detail">—</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7-DAY DEMAND CHART -->
+        <section class="chart-section glass-card" style="margin-top:1.5rem;">
+            <div class="chart-header">
+                <h2 class="section-title">
+                    <span class="section-icon">📈</span>
+                    <span>7-Day Total Daily Electricity Demand</span>
+                </h2>
+                <span class="chart-badge">7-Day Rolling Horizon</span>
+            </div>
+            <div class="chart-container" style="position:relative; height:380px;">
+                <canvas id="overview7DayChart"></canvas>
+            </div>
+        </section>
+
+        <!-- 7-DAY DAILY BREAKDOWN TABLE -->
+        <section class="chart-section glass-card" style="margin-top:1.5rem;">
+            <div class="chart-header">
+                <h2 class="section-title">
+                    <span class="section-icon">📋</span>
+                    Daily Demand Summary — 7 Days
+                </h2>
+                <span class="chart-badge">Daily Totals</span>
+            </div>
+            <div class="orders-table-wrapper">
+                <table class="comparison-table orders-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Day Type</th>
+                            <th>Total Demand (kWh)</th>
+                            <th>Peak Load (kW)</th>
+                            <th>Peak Time</th>
+                            <th>Min Load (kW)</th>
+                            <th>Avg Load (kW)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="overview-7day-table-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ── FOOTER ── -->
+    <footer class="footer">
+        <p>Nugegoda Demand Forecasting · Solar genaration · Spatial Micro-Zone Analysis · LECO Smart Meter Data</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    <script>
+        // ── Page Navigation ──────────────────────────────
+        function showPage(pageId, clickedLink) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
+            // Show target page
+            document.getElementById('page-' + pageId).classList.remove('hidden');
+
+            // Update nav active state
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            if (clickedLink) clickedLink.classList.add('active');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ── Mobile Menu ──────────────────────────────────
+        function toggleMobileMenu() {
+            document.getElementById('mobile-nav').classList.toggle('hidden');
+        }
+
+        // ── Contact Form ─────────────────────────────────
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type=submit]');
+            btn.disabled = true;
+            btn.textContent = 'Sending…';
+            setTimeout(() => {
+                document.getElementById('contact-success').classList.remove('hidden');
+                e.target.reset();
+                btn.disabled = false;
+                btn.innerHTML = '<span class="btn-icon">🚀</span> Send Message';
+            }, 1200);
+        }
+    </script>
+</body>
+
+</html>
