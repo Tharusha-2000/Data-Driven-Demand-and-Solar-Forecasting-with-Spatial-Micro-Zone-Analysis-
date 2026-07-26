@@ -393,7 +393,7 @@ async function fetch7DayOverview() {
 
         // Render 7-Day Demand Chart & Table
         render7DayChart(daily, solarDailyMap);
-        render7DayTable(daily);
+        render7DayTable(daily, solarDailyMap);
 
     } catch (e) {
         console.error('Error fetching 7-day overview forecast:', e);
@@ -478,7 +478,7 @@ function render7DayChart(daily, solarDailyMap) {
 }
 
 
-function render7DayTable(daily) {
+function render7DayTable(daily, solarDailyMap) {
     const tbody = document.getElementById('overview-7day-table-body');
     if (!tbody) return;
     tbody.innerHTML = '';
@@ -486,11 +486,14 @@ function render7DayTable(daily) {
     daily.forEach(d => {
         const tr = document.createElement('tr');
         const badgeColor = d.day_type === 'Weekend' ? '#10b981' : (d.day_type === 'Public Holiday' ? '#f43f5e' : '#00d4ff');
+        const solarKwh = (solarDailyMap && solarDailyMap[d.date]) ? solarDailyMap[d.date] : 0;
+        const netGrid = Math.max(0, d.total_demand_kwh - solarKwh).toFixed(2);
 
         tr.innerHTML = `
             <td><strong>${d.date}</strong> <span style="color:var(--text-muted);font-size:0.8rem;">(${d.day_name})</span></td>
             <td><span style="font-size:0.75rem; background:rgba(255,255,255,0.05); color:${badgeColor}; padding:0.2rem 0.6rem; border-radius:10px; border:1px solid ${badgeColor};">${d.day_type}</span></td>
             <td><strong style="color:#00d4ff;">${d.total_demand_kwh.toLocaleString()} kWh</strong></td>
+            <td><strong style="color:#a855f7;">${Number(netGrid).toLocaleString()} kWh</strong></td>
             <td><strong style="color:#f1f5f9;">${d.peak_demand_kw} kW</strong></td>
             <td style="color:var(--text-muted);">${d.peak_time}</td>
             <td style="color:var(--text-muted);">${d.min_demand_kw} kW (${d.min_time})</td>
