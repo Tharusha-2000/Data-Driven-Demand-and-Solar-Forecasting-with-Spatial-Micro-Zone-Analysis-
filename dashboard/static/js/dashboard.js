@@ -493,11 +493,9 @@ function render7DayTable(daily, solarDailyMap) {
             <td><strong>${d.date}</strong> <span style="color:var(--text-muted);font-size:0.8rem;">(${d.day_name})</span></td>
             <td><span style="font-size:0.75rem; background:rgba(255,255,255,0.05); color:${badgeColor}; padding:0.2rem 0.6rem; border-radius:10px; border:1px solid ${badgeColor};">${d.day_type}</span></td>
             <td><strong style="color:#00d4ff;">${d.total_demand_kwh.toLocaleString()} kWh</strong></td>
+            <td><strong style="color:#f59e0b;">${solarKwh.toLocaleString()} kWh</strong></td>
             <td><strong style="color:#a855f7;">${Number(netGrid).toLocaleString()} kWh</strong></td>
-            <td><strong style="color:#f1f5f9;">${d.peak_demand_kw} kW</strong></td>
             <td style="color:var(--text-muted);">${d.peak_time}</td>
-            <td style="color:var(--text-muted);">${d.min_demand_kw} kW (${d.min_time})</td>
-            <td style="color:var(--text-secondary);">${d.avg_demand_kw} kW</td>
         `;
         tbody.appendChild(tr);
     });
