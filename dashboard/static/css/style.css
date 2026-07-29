@@ -1080,3 +1080,52 @@ body {
         font-size: 1.5rem;
     }
 }
+
+
+/* ══════════════════════════════════════════════════
+   SPATIAL MICRO-ZONE ANALYSIS (Module C)
+   ══════════════════════════════════════════════════ */
+
+.tier-pill {
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.tier-high   { background: rgba(244, 63, 94, 0.12);  color: var(--accent-rose);    border: 1px solid rgba(244, 63, 94, 0.25); }
+.tier-medium { background: rgba(245, 158, 11, 0.12); color: var(--accent-amber);   border: 1px solid rgba(245, 158, 11, 0.25); }
+.tier-low    { background: rgba(16, 185, 129, 0.12); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.25); }
+
+.tier-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.tier-dot-high   { background: var(--accent-rose); }
+.tier-dot-medium { background: var(--accent-amber); }
+.tier-dot-low    { background: var(--accent-emerald); }
+
+.mz-zone-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 0 8px rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+#microzoneMap {
+    border: 1px solid var(--glass-border);
+}
+
+#microzoneMap .leaflet-tile-pane {
+    filter: brightness(0.75) saturate(0.9) invert(1) hue-rotate(180deg);
+}

@@ -26,6 +26,7 @@ from model_utils import load_model
 from weather_sync import fetch_weather
 from forecast_builder import build_forecast_input
 from model_utils import load_model, make_scenario, make_7day_forecast
+import microzone_utils
 app = Flask(__name__)
 
 # ── Load Prophet model once at startup ──────────────────────
@@ -508,6 +509,111 @@ def api_7day_forecast():
         ]
     })
 
+
+# ── API: Micro-Zone Analysis (Module C) ──────────────────────
+# Read-only: serves the precomputed pipeline output from module_c/artifacts/.
+# The next-day forecast in this payload is frozen at the training dataset's last
+# date (Module C has no live smart-meter feed to re-forecast against) — see
+# microzone_utils.py for why, and POST /api/microzone/rebuild to refresh it.
+
+@app.route('/api/microzone/zones', methods=['GET'])
+def api_microzone_zones():
+    """Zone metadata, centroids and polygons for the map."""
+    try:
+        return jsonify(microzone_utils.get_zones())
+    except microzone_utils.MicrozoneArtifactsMissing as exc:
+        return jsonify({"error": str(exc)}), 404
+
+
+@app.route('/api/microzone/overview', methods=['GET'])
+def api_microzone_overview():
+    """Full per-zone analysis: forecast, confidence, risk, warning, trend, priority list."""
+    try:
+        return jsonify(microzone_utils.get_overview())
+    except microzone_utils.MicrozoneArtifactsMissing as exc:
+        return jsonify({"error": str(exc)}), 404
+
+
+@app.route('/api/microzone/zone/<int:zone_id>', methods=['GET'])
+def api_microzone_zone_detail(zone_id):
+    """Merged metadata + analysis for a single zone."""
+    try:
+        detail = microzone_utils.get_zone_detail(zone_id)
+    except microzone_utils.MicrozoneArtifactsMissing as exc:
+        return jsonify({"error": str(exc)}), 404
+    if detail is None:
+        return jsonify({"error": f"Zone {zone_id} not found"}), 404
+    return jsonify(detail)
+
+
+@app.route('/api/microzone/validation', methods=['GET'])
+def api_microzone_validation():
+    """Stage 8.2/8.3 — worst-day replay + historical validation ('does the
+    detector actually work?'), precomputed offline."""
+    try:
+        return jsonify(microzone_utils.get_validation())
+    except microzone_utils.MicrozoneArtifactsMissing as exc:
+        return jsonify({"error": str(exc)}), 404
+
+
+@app.route('/api/microzone/scenario', methods=['POST'])
+def api_microzone_scenario():
+    """
+    Stage 8.1 — scenario-injection what-if. Request JSON: { "zone": 0, "surge_pct": 35 }.
+    Pure arithmetic on precomputed numbers (see microzone_utils.run_scenario) — no
+    model inference, so this works without xgboost/sklearn installed.
+    """
+    req = request.get_json() or {}
+    try:
+        zone_id = int(req.get('zone'))
+        surge_pct = float(req.get('surge_pct'))
+    except (TypeError, ValueError):
+        return jsonify({"error": "'zone' (int) and 'surge_pct' (number) are required"}), 400
+
+    try:
+        result = microzone_utils.run_scenario(zone_id, surge_pct)
+    except microzone_utils.MicrozoneArtifactsMissing as exc:
+        return jsonify({"error": str(exc)}), 404
+
+    if result is None:
+        return jsonify({"error": f"Zone {zone_id} not found"}), 404
+    return jsonify(result)
+
+
+@app.route('/api/microzone/scenario/multi', methods=['POST'])
+def api_microzone_scenario_multi():
+    """
+    Multi-zone scenario injection. Request JSON: { "surges": { "0": 20, "1": 50, "2": 0 } }
+    — applies a (possibly different) surge % to every zone at once and returns the
+    re-ranked priority list under that combined scenario. Pure arithmetic on
+    precomputed numbers (see microzone_utils.run_scenario_multi) — no model
+    inference, so this works without xgboost/sklearn installed.
+    """
+    req = request.get_json() or {}
+    surges = req.get('surges') or {}
+    try:
+        surges = {int(k): float(v) for k, v in surges.items()}
+    except (TypeError, ValueError):
+        return jsonify({"error": "'surges' must be a { zone_id: surge_pct } object"}), 400
+
+    try:
+        result = microzone_utils.run_scenario_multi(surges)
+    except microzone_utils.MicrozoneArtifactsMissing as exc:
+        return jsonify({"error": str(exc)}), 404
+    return jsonify(result)
+
+
+@app.route('/api/microzone/rebuild', methods=['POST'])
+def api_microzone_rebuild():
+    """
+    Manually re-run the Module C pipeline (requires module_c/requirements-train.txt
+    installed). Maintenance endpoint — not called by the dashboard UI automatically.
+    """
+    try:
+        result = microzone_utils.rebuild_pipeline()
+        return jsonify(result)
+    except Exception as exc:
+        return jsonify({"status": "error", "message": str(exc)}), 500
 
 
 # @app.route('/api/forecast/single', methods=['POST'])

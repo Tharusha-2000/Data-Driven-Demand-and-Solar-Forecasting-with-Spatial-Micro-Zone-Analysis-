@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-07-25T07:23:34.448201+00:00",
+  "worst_day_replay": [
+    {
+      "zone": 1,
+      "name": "Zone 1",
+      "worst_observed_peak_kw": 0.393,
+      "worst_day": "2026-03-26",
+      "risk_adj_peak_if_repeated_kw": 0.421,
+      "tier_if_repeated": "High"
+    },
+    {
+      "zone": 2,
+      "name": "Zone 2",
+      "worst_observed_peak_kw": 0.383,
+      "worst_day": "2026-04-07",
+      "risk_adj_peak_if_repeated_kw": 0.412,
+      "tier_if_repeated": "High"
+    },
+    {
+      "zone": 0,
+      "name": "Zone 0",
+      "worst_observed_peak_kw": 0.342,
+      "worst_day": "2026-04-07",
+      "risk_adj_peak_if_repeated_kw": 0.382,
+      "tier_if_repeated": "High"
+    }
+  ],
+  "historical_validation": {
+    "validation_date": "2026-04-07",
+    "zones": [
+      {
+        "zone": 2,
+        "name": "Zone 2",
+        "actual_peak_kw": 0.383,
+        "peak_hour": 23,
+        "pctile_vs_own_history": 100.0,
+        "tier_that_day": "High"
+      },
+      {
+        "zone": 1,
+        "name": "Zone 1",
+        "actual_peak_kw": 0.374,
+        "peak_hour": 23,
+        "pctile_vs_own_history": 97.4,
+        "tier_that_day": "High"
+      },
+      {
+        "zone": 0,
+        "name": "Zone 0",
+        "actual_peak_kw": 0.342,
+        "peak_hour": 22,
+        "pctile_vs_own_history": 100.0,
+        "tier_that_day": "High"
+      }
+    ],
+    "top_zone": 2
+  }
+}
