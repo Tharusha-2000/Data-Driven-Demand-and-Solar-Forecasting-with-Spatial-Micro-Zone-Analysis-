@@ -17,15 +17,17 @@ Both jobs also run once at startup so fresh data is always available.
 """
 
 import os
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 from flask import Flask, render_template, request, jsonify
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
 import pytz
 
-from model_utils import load_model
+from model_utils import load_model, make_scenario, make_7day_forecast
 from weather_sync import fetch_weather
 from forecast_builder import build_forecast_input
-from model_utils import load_model, make_scenario, make_7day_forecast
+from solar_utils import get_solar_forecast, get_past_solar_data
 import microzone_utils
 app = Flask(__name__)
 
@@ -508,6 +510,36 @@ def api_7day_forecast():
             for _, row in future.iterrows()
         ]
     })
+
+
+# ── API: 7-Day Solar Export Generation Forecast ──────────────
+@app.route('/api/solar/forecast', methods=['GET'])
+def api_solar_forecast():
+    """
+    7-day (168-hour) solar export forecast calculated using the trained
+    dual-input Keras model, past 7 days export/weather, and future weather forecast.
+    """
+    try:
+        result = get_solar_forecast()
+        return jsonify(result)
+    except Exception as exc:
+        import traceback
+        traceback.print_exc()
+        return jsonify({"status": "error", "message": str(exc)}), 500
+
+
+@app.route('/api/solar/past', methods=['GET'])
+def api_solar_past():
+    """
+    Return historical past 7 days (168 hours) solar export data.
+    """
+    try:
+        result = get_past_solar_data()
+        return jsonify(result)
+    except Exception as exc:
+        import traceback
+        traceback.print_exc()
+        return jsonify({"status": "error", "message": str(exc)}), 500
 
 
 # ── API: Micro-Zone Analysis (Module C) ──────────────────────
