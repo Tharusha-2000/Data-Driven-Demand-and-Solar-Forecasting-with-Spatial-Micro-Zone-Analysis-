@@ -1,14 +1,17 @@
 /**
  * dashboard.js
- * Frontend logic for Nugegoda Electricity Demand Forecasting Dashboard.
- * Updated to use the data-driven /api/forecast/single endpoint.
- * API now only needs { date } — day type and weather are auto-detected.
+ * Frontend logic for Nugegoda Electricity Demand & Solar Generation Forecasting Dashboard.
  */
 
 // ── Globals & Chart Instances ──────────────────────────────
 let singleChartInstance = null;
 let compareChartInstance = null;
 let overview7DayChartInstance = null;
+let solarForecastChartInstance = null;
+let solarDailyChartInstance = null;
+
+let cachedSolarData = null;
+let cachedDemandData = null;
 
 // ── Chart.js Default Config (Dark Theme) ──────────────────
 Chart.defaults.color = '#94a3b8';
@@ -65,10 +68,11 @@ async function initDashboard() {
             const hint = document.getElementById('available-dates-hint');
             hint.innerHTML = `📅 Available: <strong>${firstDate}</strong> → <strong>${dates[dates.length - 1]}</strong> (${dates.length} days)`;
 
-            // ── Auto-run forecast, scenario comparison, and 7-day overview on load ──
+            // ── Auto-run forecast, scenario comparison, 7-day overview & solar forecast on load ──
             await fetchSingleForecast();
             await fetchCompareForecast();
             await fetch7DayOverview();
+            await fetchSolarForecast();
         }
     } catch (e) {
         console.warn('Could not load available dates:', e);
@@ -99,102 +103,90 @@ async function fetchSingleForecast() {
 
         const data = await response.json();
 
-        // Update KPI cards
+        // 1. Update KPI Cards
         updateKpiCards(
-            data.peak_demand, data.peak_time,
-            data.min_demand, data.min_time,
-            data.avg_demand, data.scenario
+            data.peak_demand,
+            data.peak_time,
+            data.min_demand,
+            data.min_time,
+            data.avg_demand,
+            data.scenario
         );
 
-        // Update chart badge
-        const dayName = new Date(dateStr + 'T00:00:00').toLocaleDateString('en-GB', { weekday: 'long' });
-        document.getElementById('single-chart-badge').innerText =
-            `${data.scenario}  ·  ${dateStr}  (${dayName})`;
+        // 2. Render Single Line Chart
+        renderSingleChart(data);
 
-        // Render forecast chart with temperature overlay
-        renderForecastChart(data);
-
-        // Render hourly table
+        // 3. Render Hourly Breakdown Table
         renderHourlyTable(data);
 
-        // Scroll to chart
-        document.getElementById('single-chart-section').scrollIntoView({ behavior: 'smooth' });
-
-    } catch (error) {
-        console.error('Error fetching forecast:', error);
-        alert('Failed to generate forecast. Please check the server.');
+    } catch (e) {
+        console.error('Error fetching single forecast:', e);
+        alert('Failed to connect to the server. Is app.py running?');
     } finally {
         hideLoading();
     }
 }
 
 
-// ── Render Chart ───────────────────────────────────────────
-function renderForecastChart(data) {
+// ── Render 24-Hour Single Forecast Chart ───────────────────
+function renderSingleChart(data) {
     const ctx = document.getElementById('singleChart').getContext('2d');
     if (singleChartInstance) singleChartInstance.destroy();
 
-    const theme = scenarioColors[data.scenario] || defaultColor;
-    const labels = data.dates.map(d => d.split(' ')[1]);
+    const hours = data.dates.map(d => d.slice(11, 16));
+    const pal = scenarioColors[data.scenario] || defaultColor;
 
-    // Temperature data from weather array
-    const tempData = (data.weather || []).map(w => w.temperature);
-    const hasTemp = tempData.some(t => t !== null && t !== undefined);
+    // Calculate dynamic Y bounds
+    const allY = [...data.yhat, ...data.yhat_upper, ...data.yhat_lower];
+    const minY = Math.floor(Math.min(...allY) * 0.95);
+    const maxY = Math.ceil(Math.max(...allY) * 1.05);
 
-    const datasets = [
-        // CI band (lower → upper fill)
-        {
-            label: 'Upper 95% CI',
-            data: data.yhat_upper,
-            borderColor: 'transparent',
-            backgroundColor: 'transparent',
-            pointRadius: 0,
-            fill: false,
-        },
-        {
-            label: 'Lower 95% CI',
-            data: data.yhat_lower,
-            borderColor: 'transparent',
-            backgroundColor: 'rgba(255,255,255,0.03)',
-            pointRadius: 0,
-            fill: '-1',  // fill up to upper CI
-        },
-        // Main demand line
-        {
-            label: 'Predicted Demand (kW)',
-            data: data.yhat,
-            borderColor: theme.border,
-            backgroundColor: theme.bg,
-            borderWidth: 2.5,
-            pointBackgroundColor: theme.border,
-            pointRadius: 3,
-            pointHoverRadius: 7,
-            fill: true,
-            tension: 0.4,
-            yAxisID: 'y',
-        },
-    ];
+    document.getElementById('single-chart-title').innerText =
+        `24-Hour Demand Forecast — ${data.date} (${data.scenario})`;
 
-    // Add temperature line on secondary y-axis if available
-    if (hasTemp) {
-        datasets.push({
-            label: 'Temperature (°C)',
-            data: tempData,
-            borderColor: '#f59e0b',
-            backgroundColor: 'transparent',
-            borderWidth: 1.5,
-            borderDash: [5, 4],
-            pointRadius: 0,
-            pointHoverRadius: 5,
-            fill: false,
-            tension: 0.4,
-            yAxisID: 'yTemp',
-        });
-    }
+    const sourceLabel = data.data_source === 'forecast_input_7days.json'
+        ? 'Live Weather' : 'Feature Matrix';
+    document.getElementById('single-chart-badge').innerText = `${data.scenario} · ${sourceLabel}`;
 
     singleChartInstance = new Chart(ctx, {
         type: 'line',
-        data: { labels, datasets },
+        data: {
+            labels: hours,
+            datasets: [
+                {
+                    label: 'Predicted Load (kW)',
+                    data: data.yhat,
+                    borderColor: pal.border,
+                    backgroundColor: pal.bg,
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 4,
+                    pointBackgroundColor: pal.border,
+                    pointHoverRadius: 7,
+                    zIndex: 10,
+                },
+                {
+                    label: 'Upper Bound (95% CI)',
+                    data: data.yhat_upper,
+                    borderColor: 'rgba(255, 255, 255, 0.2)',
+                    borderWidth: 1,
+                    borderDash: [4, 4],
+                    fill: false,
+                    pointRadius: 0,
+                },
+                {
+                    label: 'Lower Bound (95% CI)',
+                    data: data.yhat_lower,
+                    borderColor: 'rgba(255, 255, 255, 0.2)',
+                    borderWidth: 1,
+                    borderDash: [4, 4],
+                    fill: '-1',
+                    backgroundColor: 'rgba(255, 255, 255, 0.03)',
+                    pointRadius: 0,
+                }
+            ]
+        },
         options: {
             responsive: true,
             maintainAspectRatio: false,
@@ -202,91 +194,63 @@ function renderForecastChart(data) {
             scales: {
                 x: {
                     grid: { color: 'rgba(255,255,255,0.05)' },
-                    ticks: { maxTicksLimit: 12 },
+                    title: { display: true, text: 'Hour of Day (Asia/Colombo)', color: '#64748b' }
                 },
                 y: {
+                    min: minY,
+                    max: maxY,
                     grid: { color: 'rgba(255,255,255,0.05)' },
-                    title: { display: true, text: 'Demand (kW)', color: '#94a3b8' },
-                    position: 'left',
-                },
-                ...(hasTemp ? {
-                    yTemp: {
-                        grid: { drawOnChartArea: false },
-                        title: { display: true, text: 'Temp (°C)', color: '#f59e0b' },
-                        position: 'right',
-                        ticks: { color: '#f59e0b' },
-                    }
-                } : {}),
+                    title: { display: true, text: 'Demand (kW)', color: pal.border }
+                }
             },
             plugins: {
-                legend: {
-                    display: true,
-                    labels: {
-                        filter: item =>
-                            item.text !== 'Upper 95% CI' && item.text !== 'Lower 95% CI',
-                    },
-                },
+                legend: { display: true, position: 'top' },
                 tooltip: {
                     callbacks: {
-                        label(context) {
-                            if (context.datasetIndex === 2) {
-                                const i = context.dataIndex;
-                                const lower = data.yhat_lower[i];
-                                const upper = data.yhat_upper[i];
-                                return `Demand: ${context.parsed.y} kW  (CI: ${lower} – ${upper})`;
-                            }
-                            if (context.dataset.label === 'Temperature (°C)') {
-                                return `Temp: ${context.parsed.y} °C`;
-                            }
-                            return null;
-                        },
-                    },
-                },
-            },
-        },
+                        label(ctx) {
+                            return `${ctx.dataset.label}: ${ctx.parsed.y} kW`;
+                        }
+                    }
+                }
+            }
+        }
     });
 }
 
 
-// ── Render Hourly Table ────────────────────────────────────
+// ── Render Hourly Breakdown Table ──────────────────────────
 function renderHourlyTable(data) {
+    const tableSection = document.getElementById('hourly-table-section');
     const tbody = document.getElementById('hourly-table-body');
-    const section = document.getElementById('hourly-table-section');
     const badge = document.getElementById('hourly-table-badge');
 
     tbody.innerHTML = '';
-    badge.innerText = `${data.date}  ·  ${data.scenario}`;
+    badge.innerText = `${data.date} · 24 Hours`;
 
-    const weather = data.weather || [];
+    data.dates.forEach((dateTimeStr, idx) => {
+        const timeStr = dateTimeStr.slice(11, 16);
+        const yhat = data.yhat[idx];
+        const lower = data.yhat_lower[idx];
+        const upper = data.yhat_upper[idx];
 
-    data.dates.forEach((dt, i) => {
-        const time = dt.split(' ')[1];
-        const yhat = data.yhat[i];
-        const lower = data.yhat_lower[i];
-        const upper = data.yhat_upper[i];
-
-        // Highlight peak hour
-        const isPeak = yhat === data.peak_demand;
         const tr = document.createElement('tr');
-        if (isPeak) tr.style.background = 'rgba(0,212,255,0.07)';
-
         tr.innerHTML = `
-            <td><strong>${time}</strong>${isPeak ? ' <span style="color:#00d4ff;font-size:0.75rem;">PEAK</span>' : ''}</td>
-            <td><strong style="color:#f1f5f9;">${yhat}</strong></td>
-            <td style="color:var(--text-muted);">${lower}</td>
-            <td style="color:var(--text-muted);">${upper}</td>
+            <td><strong>${timeStr}</strong></td>
+            <td><strong style="color:var(--accent-primary);">${yhat} kW</strong></td>
+            <td style="color:var(--text-muted);">${lower} kW</td>
+            <td style="color:var(--text-muted);">${upper} kW</td>
         `;
         tbody.appendChild(tr);
     });
 
-    section.style.display = 'block';
+    tableSection.style.display = 'block';
 }
 
 
-// ── Scenario Comparison: Fetch & Render ─────────────────────
+// ── Scenario Comparison (Weekday vs Weekend vs Holiday) ───
 async function fetchCompareForecast() {
     const dateStr = document.getElementById('forecast-date').value;
-    if (!dateStr) { alert('Please select a date.'); return; }
+    if (!dateStr) return;
 
     showLoading();
     try {
@@ -296,61 +260,47 @@ async function fetchCompareForecast() {
             body: JSON.stringify({ date: dateStr }),
         });
 
-        if (!response.ok) {
-            alert('Failed to load scenario comparison.');
-            return;
-        }
+        if (!response.ok) return;
 
         const data = await response.json();
-        const scenarios = data.scenarios || [];
+        renderCompareChart(data);
+        renderCompareCards(data.scenarios);
 
-        // Update badge
-        document.getElementById('compare-chart-badge').innerText = '3 Scenarios';
-
-        // Render multi-scenario chart & summary cards
-        renderCompareChart(scenarios, dateStr);
-        renderCompareCards(scenarios);
-
-        // Show compare section
-        const section = document.getElementById('compare-chart-section');
-        section.style.display = 'block';
-
-    } catch (error) {
-        console.error('Error fetching scenario comparison:', error);
-        alert('Failed to generate scenario comparison. Please check the server.');
+    } catch (e) {
+        console.error('Error fetching scenario comparison:', e);
     } finally {
         hideLoading();
     }
 }
 
 
-function renderCompareChart(scenarios, dateStr) {
+function renderCompareChart(data) {
     const ctx = document.getElementById('compareChart').getContext('2d');
     if (compareChartInstance) compareChartInstance.destroy();
 
-    // Use time labels from the first scenario
-    const firstSc = scenarios[0] || {};
-    const labels = (firstSc.dates || []).map(d => d.split(' ')[1]);
+    document.getElementById('compare-chart-title').innerText =
+        `Scenario Comparison — Weekday vs Weekend vs Holiday (${data.date})`;
 
-    const datasets = scenarios.map(sc => {
-        const theme = scenarioColors[sc.scenario] || defaultColor;
+    const hours = data.scenarios[0].dates.map(d => d.slice(11, 16));
+
+    const datasets = data.scenarios.map(sc => {
+        const pal = scenarioColors[sc.scenario] || defaultColor;
         return {
-            label: `${sc.scenario} Demand (kW)`,
+            label: sc.scenario,
             data: sc.yhat,
-            borderColor: theme.border,
-            backgroundColor: theme.bg,
+            borderColor: pal.border,
+            backgroundColor: pal.bg,
             borderWidth: 2.5,
-            pointBackgroundColor: theme.border,
-            pointRadius: 3,
-            pointHoverRadius: 7,
             fill: false,
             tension: 0.4,
+            pointRadius: 3,
+            pointHoverRadius: 6,
         };
     });
 
     compareChartInstance = new Chart(ctx, {
         type: 'line',
-        data: { labels, datasets },
+        data: { labels: hours, datasets: datasets },
         options: {
             responsive: true,
             maintainAspectRatio: false,
@@ -358,66 +308,42 @@ function renderCompareChart(scenarios, dateStr) {
             scales: {
                 x: {
                     grid: { color: 'rgba(255,255,255,0.05)' },
-                    ticks: { maxTicksLimit: 12 },
+                    title: { display: true, text: 'Hour of Day', color: '#64748b' }
                 },
                 y: {
                     grid: { color: 'rgba(255,255,255,0.05)' },
-                    title: { display: true, text: 'Demand (kW)', color: '#94a3b8' },
-                    position: 'left',
-                },
+                    title: { display: true, text: 'Demand (kW)', color: '#f1f5f9' }
+                }
             },
             plugins: {
-                legend: {
-                    display: true,
-                    position: 'top',
-                    labels: { color: '#f1f5f9', font: { weight: '600' } },
-                },
-                tooltip: {
-                    callbacks: {
-                        label(context) {
-                            return `${context.dataset.label}: ${context.parsed.y} kW`;
-                        },
-                    },
-                },
-            },
-        },
+                legend: { display: true, position: 'top' },
+            }
+        }
     });
 }
 
 
 function renderCompareCards(scenarios) {
-    const grid = document.getElementById('compare-cards-grid');
-    grid.innerHTML = '';
+    const wrapper = document.getElementById('compare-cards-grid');
+    if (!wrapper) return;
+    wrapper.innerHTML = '';
 
     scenarios.forEach(sc => {
-        const theme = scenarioColors[sc.scenario] || defaultColor;
+        const pal = scenarioColors[sc.scenario] || defaultColor;
         const card = document.createElement('div');
-        card.className = 'kpi-card glass-card';
-        card.style.borderColor = theme.border;
-        card.style.background = 'rgba(255, 255, 255, 0.03)';
-        card.style.padding = '1.25rem';
+        card.className = 'glass-card';
+        card.style.borderLeft = `4px solid ${pal.border}`;
 
         card.innerHTML = `
-            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:0.75rem;">
-                <span style="font-weight:700; font-size:1.05rem; color:${theme.border};">${sc.scenario}</span>
-                <span style="font-size:0.75rem; background:${theme.bg}; color:${theme.border}; padding:0.2rem 0.6rem; border-radius:12px; border:1px solid ${theme.border};">Scenario</span>
-            </div>
-            <div style="display:flex; flex-direction:column; gap:0.4rem; font-size:0.88rem;">
-                <div style="display:flex; justify-content:space-between;">
-                    <span style="color:var(--text-secondary);">Peak Demand:</span>
-                    <strong style="color:#f1f5f9;">${sc.peak_demand} kW <small style="color:var(--text-muted);">(${sc.peak_time})</small></strong>
-                </div>
-                <div style="display:flex; justify-content:space-between;">
-                    <span style="color:var(--text-secondary);">Min Demand:</span>
-                    <strong style="color:#f1f5f9;">${sc.min_demand} kW <small style="color:var(--text-muted);">(${sc.min_time})</small></strong>
-                </div>
-                <div style="display:flex; justify-content:space-between;">
-                    <span style="color:var(--text-secondary);">Avg Demand:</span>
-                    <strong style="color:var(--accent-blue);">${sc.avg_demand} kW</strong>
-                </div>
+            <h4 style="color:${pal.border}; font-size:1.05rem; font-weight:700; margin-bottom:0.75rem;">${sc.scenario}</h4>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; font-size:0.85rem;">
+                <div><span style="color:var(--text-muted);">Peak Load:</span> <strong style="color:var(--text-primary);">${sc.peak_demand} kW</strong></div>
+                <div><span style="color:var(--text-muted);">Peak Time:</span> <strong style="color:var(--text-primary);">${sc.peak_time}</strong></div>
+                <div><span style="color:var(--text-muted);">Min Load:</span> <strong style="color:var(--text-primary);">${sc.min_demand} kW</strong></div>
+                <div><span style="color:var(--text-muted);">Avg Load:</span> <strong style="color:var(--text-primary);">${sc.avg_demand} kW</strong></div>
             </div>
         `;
-        grid.appendChild(card);
+        wrapper.appendChild(card);
     });
 }
 
@@ -430,22 +356,9 @@ async function fetch7DayOverview() {
 
         const data = await response.json();
         const daily = data.daily || [];
+        cachedDemandData = data;
 
-        // 1. Console Log Each Day's Full Demand
-        console.log("==================================================================");
-        console.log("⚡ OVERVIEW DASHBOARD — 7-DAY ELECTRICITY DEMAND FORECAST");
-        console.log(`TOTAL 7-DAY DEMAND: ${data.total_7day_demand_kwh} kWh`);
-        console.log("==================================================================");
-        daily.forEach((d, i) => {
-            console.log(`[Day ${i+1}] ${d.date} (${d.day_name} · ${d.day_type}):`);
-            console.log(`   └─ Full Daily Total Demand : ${d.total_demand_kwh} kWh`);
-            console.log(`   └─ Peak Demand            : ${d.peak_demand_kw} kW at ${d.peak_time}`);
-            console.log(`   └─ Min Demand             : ${d.min_demand_kw} kW at ${d.min_time}`);
-            console.log(`   └─ Avg Demand             : ${d.avg_demand_kw} kW`);
-        });
-        console.log("==================================================================");
-
-        // 2. Update KPI Summary Cards
+        // Update KPI Summary Cards
         document.getElementById('overview-7day-total').innerText = `${data.total_7day_demand_kwh.toLocaleString()} kWh`;
         const avgDaily = (data.total_7day_demand_kwh / (daily.length || 7)).toFixed(2);
         document.getElementById('overview-daily-avg').innerText = `${Number(avgDaily).toLocaleString()} kWh`;
@@ -462,11 +375,25 @@ async function fetch7DayOverview() {
             document.getElementById('overview-min-day-detail').innerText = `${minDay.date} (${minDay.day_name})`;
         }
 
-        // 3. Render 7-Day Chart (Bar + Line)
-        render7DayChart(daily);
+        // Build solar daily map from cached data or fetch it
+        const solarDailyMap = {};
+        if (!cachedSolarData) {
+            try {
+                const solarRes = await fetch('/api/solar/forecast');
+                if (solarRes.ok) cachedSolarData = await solarRes.json();
+            } catch (err) {
+                console.warn('Could not fetch solar forecast for overview:', err);
+            }
+        }
+        if (cachedSolarData && cachedSolarData.daily) {
+            cachedSolarData.daily.forEach(sd => {
+                solarDailyMap[sd.date] = sd.total_export_kwh;
+            });
+        }
 
-        // 4. Render Daily Table
-        render7DayTable(daily);
+        // Render 7-Day Demand Chart & Table
+        render7DayChart(daily, solarDailyMap);
+        render7DayTable(daily, solarDailyMap);
 
     } catch (e) {
         console.error('Error fetching 7-day overview forecast:', e);
@@ -474,13 +401,15 @@ async function fetch7DayOverview() {
 }
 
 
-function render7DayChart(daily) {
+function render7DayChart(daily, solarDailyMap) {
     const ctx = document.getElementById('overview7DayChart');
     if (!ctx) return;
     if (overview7DayChartInstance) overview7DayChartInstance.destroy();
 
     const labels = daily.map(d => `${d.date.slice(5)} (${d.day_name.slice(0, 3)})`);
-    const totals = daily.map(d => d.total_demand_kwh);
+    const demandData = daily.map(d => d.total_demand_kwh);
+    const solarData = daily.map(d => solarDailyMap[d.date] || 0);
+    const netGridData = daily.map((d, i) => Number(Math.max(0, d.total_demand_kwh - solarData[i]).toFixed(2)));
 
     overview7DayChartInstance = new Chart(ctx.getContext('2d'), {
         type: 'bar',
@@ -489,12 +418,33 @@ function render7DayChart(daily) {
             datasets: [
                 {
                     label: 'Total Daily Demand (kWh)',
-                    data: totals,
+                    data: demandData,
                     backgroundColor: 'rgba(0, 212, 255, 0.45)',
                     borderColor: '#00d4ff',
                     borderWidth: 2,
-                    borderRadius: 8,
-                    hoverBackgroundColor: 'rgba(0, 212, 255, 0.7)',
+                    borderRadius: 6,
+                    order: 2
+                },
+                {
+                    label: 'Solar Export Generation (kWh)',
+                    data: solarData,
+                    backgroundColor: 'rgba(245, 158, 11, 0.65)',
+                    borderColor: '#f59e0b',
+                    borderWidth: 2,
+                    borderRadius: 6,
+                    order: 2
+                },
+                {
+                    type: 'line',
+                    label: 'Net External Grid Needed (kWh)',
+                    data: netGridData,
+                    borderColor: '#a855f7',
+                    backgroundColor: 'rgba(168, 85, 247, 0.15)',
+                    borderWidth: 3,
+                    pointRadius: 5,
+                    pointBackgroundColor: '#a855f7',
+                    tension: 0.25,
+                    order: 1
                 }
             ]
         },
@@ -508,9 +458,9 @@ function render7DayChart(daily) {
                 },
                 y: {
                     type: 'linear',
-                    beginAtZero: false,
+                    beginAtZero: true,
                     grid: { color: 'rgba(255,255,255,0.05)' },
-                    title: { display: true, text: 'Total Demand (kWh)', color: '#00d4ff' }
+                    title: { display: true, text: 'Energy (kWh)', color: '#f1f5f9' }
                 }
             },
             plugins: {
@@ -518,7 +468,7 @@ function render7DayChart(daily) {
                 tooltip: {
                     callbacks: {
                         label(ctx) {
-                            return `Total Demand: ${ctx.parsed.y.toLocaleString()} kWh`;
+                            return `${ctx.dataset.label}: ${ctx.parsed.y.toLocaleString()} kWh`;
                         }
                     }
                 }
@@ -528,7 +478,7 @@ function render7DayChart(daily) {
 }
 
 
-function render7DayTable(daily) {
+function render7DayTable(daily, solarDailyMap) {
     const tbody = document.getElementById('overview-7day-table-body');
     if (!tbody) return;
     tbody.innerHTML = '';
@@ -536,15 +486,220 @@ function render7DayTable(daily) {
     daily.forEach(d => {
         const tr = document.createElement('tr');
         const badgeColor = d.day_type === 'Weekend' ? '#10b981' : (d.day_type === 'Public Holiday' ? '#f43f5e' : '#00d4ff');
+        const solarKwh = (solarDailyMap && solarDailyMap[d.date]) ? solarDailyMap[d.date] : 0;
+        const netGrid = Math.max(0, d.total_demand_kwh - solarKwh).toFixed(2);
 
         tr.innerHTML = `
             <td><strong>${d.date}</strong> <span style="color:var(--text-muted);font-size:0.8rem;">(${d.day_name})</span></td>
             <td><span style="font-size:0.75rem; background:rgba(255,255,255,0.05); color:${badgeColor}; padding:0.2rem 0.6rem; border-radius:10px; border:1px solid ${badgeColor};">${d.day_type}</span></td>
             <td><strong style="color:#00d4ff;">${d.total_demand_kwh.toLocaleString()} kWh</strong></td>
-            <td><strong style="color:#f1f5f9;">${d.peak_demand_kw} kW</strong></td>
+            <td><strong style="color:#f59e0b;">${solarKwh.toLocaleString()} kWh</strong></td>
+            <td><strong style="color:#a855f7;">${Number(netGrid).toLocaleString()} kWh</strong></td>
             <td style="color:var(--text-muted);">${d.peak_time}</td>
-            <td style="color:var(--text-muted);">${d.min_demand_kw} kW (${d.min_time})</td>
-            <td style="color:var(--text-secondary);">${d.avg_demand_kw} kW</td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+
+// ══════════════════════════════════════════════════════════
+// SOLAR GENERATION FORECAST FUNCTIONS
+// ══════════════════════════════════════════════════════════
+async function fetchSolarForecast() {
+    try {
+        const res = await fetch('/api/solar/forecast');
+        if (!res.ok) {
+            console.error('Failed to fetch solar forecast:', await res.text());
+            return;
+        }
+        const data = await res.json();
+        if (data.status !== 'success') {
+            console.error('Solar forecast error:', data.message);
+            return;
+        }
+
+        cachedSolarData = data;
+
+        // 1. Update KPI Cards
+        document.getElementById('solar-kpi-total').innerText = `${Number(data.total_7day_export_kwh).toLocaleString()} kWh`;
+        document.getElementById('solar-kpi-peak').innerText = `${data.peak_export_kw} kW`;
+        document.getElementById('solar-kpi-peak-time').innerText = `at ${data.peak_time}`;
+        document.getElementById('solar-kpi-avg').innerText = `${Number(data.avg_daily_export_kwh).toLocaleString()} kWh`;
+        document.getElementById('solar-kpi-ghi').innerText = `${data.max_ghi} W/m²`;
+
+        // 2. Render Charts
+        renderSolarForecastChart(data.hourly);
+        renderSolarDailyChart(data.daily);
+
+        // 3. Render Table
+        renderSolarTable(data.hourly);
+
+    } catch (e) {
+        console.error('Error fetching solar forecast:', e);
+    }
+}
+
+
+function renderSolarForecastChart(hourly) {
+    const ctx = document.getElementById('solarForecastChart');
+    if (!ctx) return;
+    if (solarForecastChartInstance) solarForecastChartInstance.destroy();
+
+    const labels = hourly.map(h => {
+        const parts = h.ds.split(' ');
+        const dateStr = parts[0].slice(5); // MM-DD
+        return h.time === '00:00' || h.time === '12:00' ? `${dateStr} ${h.time}` : h.time;
+    });
+
+    const exportData = hourly.map(h => h.predicted_export_kw);
+    const ghiData = hourly.map(h => h.ghi);
+
+    solarForecastChartInstance = new Chart(ctx.getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Predicted Solar Export (kW)',
+                    data: exportData,
+                    borderColor: '#f59e0b',
+                    backgroundColor: 'rgba(245, 158, 11, 0.18)',
+                    borderWidth: 2.5,
+                    fill: true,
+                    tension: 0.35,
+                    pointRadius: 0,
+                    pointHoverRadius: 5,
+                    yAxisID: 'y1'
+                },
+                {
+                    label: 'Solar Radiation GHI (W/m²)',
+                    data: ghiData,
+                    borderColor: '#06b6d4',
+                    borderWidth: 1.5,
+                    borderDash: [4, 4],
+                    fill: false,
+                    tension: 0.3,
+                    pointRadius: 0,
+                    pointHoverRadius: 4,
+                    yAxisID: 'y2'
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            scales: {
+                x: {
+                    grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                    ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 14 }
+                },
+                y1: {
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                    beginAtZero: true,
+                    grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                    title: { display: true, text: 'Export Rate (kW)', color: '#f59e0b' }
+                },
+                y2: {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
+                    beginAtZero: true,
+                    grid: { drawOnChartArea: false },
+                    title: { display: true, text: 'Solar Radiation (W/m²)', color: '#06b6d4' }
+                }
+            },
+            plugins: {
+                legend: { display: true, position: 'top' },
+                tooltip: {
+                    callbacks: {
+                        label(ctx) {
+                            if (ctx.dataset.yAxisID === 'y1') {
+                                return `Predicted Export: ${ctx.parsed.y} kW`;
+                            }
+                            return `Solar Radiation: ${ctx.parsed.y} W/m²`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+
+function renderSolarDailyChart(solarDaily) {
+    const ctx = document.getElementById('solarDailyChart');
+    if (!ctx) return;
+    if (solarDailyChartInstance) solarDailyChartInstance.destroy();
+
+    const labels = solarDaily.map(d => `${d.date.slice(5)} (${d.day_name.slice(0, 3)})`);
+    const totals = solarDaily.map(d => d.total_export_kwh);
+
+    solarDailyChartInstance = new Chart(ctx.getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Daily Solar Export (kWh)',
+                    data: totals,
+                    backgroundColor: 'rgba(245, 158, 11, 0.55)',
+                    borderColor: '#f59e0b',
+                    borderWidth: 2,
+                    borderRadius: 8,
+                    hoverBackgroundColor: 'rgba(245, 158, 11, 0.85)',
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            scales: {
+                x: {
+                    grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                },
+                y: {
+                    type: 'linear',
+                    beginAtZero: true,
+                    grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                    title: { display: true, text: 'Total Solar Export (kWh)', color: '#f59e0b' }
+                }
+            },
+            plugins: {
+                legend: { display: true, position: 'top' },
+                tooltip: {
+                    callbacks: {
+                        label(ctx) {
+                            return `Solar Export: ${ctx.parsed.y.toLocaleString()} kWh`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+
+function renderSolarTable(hourly) {
+    const tbody = document.getElementById('solar-table-body');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+
+    hourly.forEach(h => {
+        const tr = document.createElement('tr');
+        const isNight = h.ghi === 0;
+        const exportColor = isNight ? 'var(--text-muted)' : '#f59e0b';
+
+        tr.innerHTML = `
+            <td><strong>${h.date}</strong></td>
+            <td>${h.time}</td>
+            <td><strong style="color:${exportColor};">${h.predicted_export_kw} kW</strong></td>
+            <td style="color:${isNight ? 'var(--text-muted)' : '#06b6d4'};">${h.ghi} W/m²</td>
+            <td style="color:var(--text-secondary);">${h.temp} °C</td>
+            <td style="color:var(--text-secondary);">${h.cloud} %</td>
         `;
         tbody.appendChild(tr);
     });
@@ -555,5 +710,3 @@ function render7DayTable(daily) {
 window.onload = () => {
     initDashboard();
 };
-
-

@@ -1,535 +1,7 @@
 [
   {
-    "ds": "2026-07-24 00:00:00",
-    "Temperature": 26.1,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 0,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 01:00:00",
-    "Temperature": 26.1,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 1,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 02:00:00",
-    "Temperature": 26.0,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 2,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 03:00:00",
-    "Temperature": 25.8,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 3,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 04:00:00",
-    "Temperature": 25.6,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 4,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 05:00:00",
-    "Temperature": 24.2,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 5,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 06:00:00",
-    "Temperature": 23.5,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 6,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 07:00:00",
-    "Temperature": 26.4,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 7,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 08:00:00",
-    "Temperature": 27.0,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 8,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 09:00:00",
-    "Temperature": 28.3,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 9,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 10:00:00",
-    "Temperature": 30.2,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 10,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 11:00:00",
-    "Temperature": 31.2,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 11,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 12:00:00",
-    "Temperature": 31.9,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 12,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 13:00:00",
-    "Temperature": 31.5,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 13,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 14:00:00",
-    "Temperature": 30.9,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 14,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 15:00:00",
-    "Temperature": 30.0,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 15,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 16:00:00",
-    "Temperature": 29.0,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 16,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 17:00:00",
-    "Temperature": 28.2,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 17,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 18:00:00",
-    "Temperature": 27.2,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 18,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 19:00:00",
-    "Temperature": 26.0,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 19,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 20:00:00",
-    "Temperature": 26.8,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 20,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 21:00:00",
-    "Temperature": 26.6,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 21,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 22:00:00",
-    "Temperature": 26.5,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 22,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-24 23:00:00",
-    "Temperature": 26.3,
-    "is_weekend": 0,
-    "is_public_holiday": 0,
-    "hour": 23,
-    "day": 4,
-    "on_holiday": false,
-    "on_weekend": false,
-    "on_weekday": true
-  },
-  {
-    "ds": "2026-07-25 00:00:00",
-    "Temperature": 27.1,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 0,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 01:00:00",
-    "Temperature": 27.0,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 1,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 02:00:00",
-    "Temperature": 26.0,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 2,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 03:00:00",
-    "Temperature": 26.3,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 3,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 04:00:00",
-    "Temperature": 25.1,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 4,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 05:00:00",
-    "Temperature": 25.0,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 5,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 06:00:00",
-    "Temperature": 24.8,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 6,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 07:00:00",
-    "Temperature": 25.5,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 7,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 08:00:00",
-    "Temperature": 28,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 8,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 09:00:00",
-    "Temperature": 29.3,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 9,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 10:00:00",
-    "Temperature": 31.2,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 10,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 11:00:00",
-    "Temperature": 32.2,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 11,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 12:00:00",
-    "Temperature": 32.9,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 12,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 13:00:00",
-    "Temperature": 32.5,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 13,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 14:00:00",
-    "Temperature": 31.9,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 14,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 15:00:00",
-    "Temperature": 31.0,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 15,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 16:00:00",
-    "Temperature": 30.0,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 16,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 17:00:00",
-    "Temperature": 29.2,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 17,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 18:00:00",
-    "Temperature": 28.2,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 18,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 19:00:00",
-    "Temperature": 28.0,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 19,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 20:00:00",
-    "Temperature": 28.0,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 20,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 21:00:00",
-    "Temperature": 27.9,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 21,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 22:00:00",
-    "Temperature": 27.7,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 22,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
-    "ds": "2026-07-25 23:00:00",
-    "Temperature": 27.1,
-    "is_weekend": 1,
-    "is_public_holiday": 0,
-    "hour": 23,
-    "day": 5,
-    "on_holiday": false,
-    "on_weekend": true,
-    "on_weekday": false
-  },
-  {
     "ds": "2026-07-26 00:00:00",
-    "Temperature": 26.5,
+    "Temperature": 27.0,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 0,
@@ -540,7 +12,7 @@
   },
   {
     "ds": "2026-07-26 01:00:00",
-    "Temperature": 25.8,
+    "Temperature": 26.4,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 1,
@@ -551,7 +23,7 @@
   },
   {
     "ds": "2026-07-26 02:00:00",
-    "Temperature": 25.6,
+    "Temperature": 26.6,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 2,
@@ -562,7 +34,7 @@
   },
   {
     "ds": "2026-07-26 03:00:00",
-    "Temperature": 25.1,
+    "Temperature": 26.5,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 3,
@@ -573,7 +45,7 @@
   },
   {
     "ds": "2026-07-26 04:00:00",
-    "Temperature": 25.0,
+    "Temperature": 26.5,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 4,
@@ -584,7 +56,7 @@
   },
   {
     "ds": "2026-07-26 05:00:00",
-    "Temperature": 25.1,
+    "Temperature": 26.3,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 5,
@@ -595,7 +67,7 @@
   },
   {
     "ds": "2026-07-26 06:00:00",
-    "Temperature": 24.0,
+    "Temperature": 26.3,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 6,
@@ -606,7 +78,7 @@
   },
   {
     "ds": "2026-07-26 07:00:00",
-    "Temperature": 25.3,
+    "Temperature": 27.3,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 7,
@@ -617,7 +89,7 @@
   },
   {
     "ds": "2026-07-26 08:00:00",
-    "Temperature": 27.0,
+    "Temperature": 28.4,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 8,
@@ -628,7 +100,7 @@
   },
   {
     "ds": "2026-07-26 09:00:00",
-    "Temperature": 28.6,
+    "Temperature": 29.8,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 9,
@@ -639,7 +111,7 @@
   },
   {
     "ds": "2026-07-26 10:00:00",
-    "Temperature": 31.2,
+    "Temperature": 30.0,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 10,
@@ -650,7 +122,7 @@
   },
   {
     "ds": "2026-07-26 11:00:00",
-    "Temperature": 32.2,
+    "Temperature": 30.8,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 11,
@@ -661,7 +133,7 @@
   },
   {
     "ds": "2026-07-26 12:00:00",
-    "Temperature": 32.9,
+    "Temperature": 30.9,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 12,
@@ -672,7 +144,7 @@
   },
   {
     "ds": "2026-07-26 13:00:00",
-    "Temperature": 32.5,
+    "Temperature": 30.8,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 13,
@@ -683,7 +155,7 @@
   },
   {
     "ds": "2026-07-26 14:00:00",
-    "Temperature": 31.9,
+    "Temperature": 30.4,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 14,
@@ -694,7 +166,7 @@
   },
   {
     "ds": "2026-07-26 15:00:00",
-    "Temperature": 31.0,
+    "Temperature": 30.1,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 15,
@@ -705,7 +177,7 @@
   },
   {
     "ds": "2026-07-26 16:00:00",
-    "Temperature": 29.2,
+    "Temperature": 29.8,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 16,
@@ -716,7 +188,7 @@
   },
   {
     "ds": "2026-07-26 17:00:00",
-    "Temperature": 28.2,
+    "Temperature": 28.9,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 17,
@@ -727,7 +199,7 @@
   },
   {
     "ds": "2026-07-26 18:00:00",
-    "Temperature": 27.4,
+    "Temperature": 28.2,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 18,
@@ -738,7 +210,7 @@
   },
   {
     "ds": "2026-07-26 19:00:00",
-    "Temperature": 27.6,
+    "Temperature": 28.0,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 19,
@@ -749,7 +221,7 @@
   },
   {
     "ds": "2026-07-26 20:00:00",
-    "Temperature": 27.7,
+    "Temperature": 28.0,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 20,
@@ -760,7 +232,7 @@
   },
   {
     "ds": "2026-07-26 21:00:00",
-    "Temperature": 27.7,
+    "Temperature": 27.8,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 21,
@@ -782,7 +254,7 @@
   },
   {
     "ds": "2026-07-26 23:00:00",
-    "Temperature": 27.5,
+    "Temperature": 27.3,
     "is_weekend": 1,
     "is_public_holiday": 0,
     "hour": 23,
@@ -793,7 +265,7 @@
   },
   {
     "ds": "2026-07-27 00:00:00",
-    "Temperature": 27.5,
+    "Temperature": 27.1,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 0,
@@ -804,7 +276,7 @@
   },
   {
     "ds": "2026-07-27 01:00:00",
-    "Temperature": 27.5,
+    "Temperature": 27.2,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 1,
@@ -815,7 +287,7 @@
   },
   {
     "ds": "2026-07-27 02:00:00",
-    "Temperature": 27.5,
+    "Temperature": 27.2,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 2,
@@ -826,7 +298,7 @@
   },
   {
     "ds": "2026-07-27 03:00:00",
-    "Temperature": 27.5,
+    "Temperature": 27.0,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 3,
@@ -837,7 +309,7 @@
   },
   {
     "ds": "2026-07-27 04:00:00",
-    "Temperature": 27.5,
+    "Temperature": 27.3,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 4,
@@ -848,7 +320,7 @@
   },
   {
     "ds": "2026-07-27 05:00:00",
-    "Temperature": 27.5,
+    "Temperature": 27.3,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 5,
@@ -870,7 +342,7 @@
   },
   {
     "ds": "2026-07-27 07:00:00",
-    "Temperature": 28.2,
+    "Temperature": 27.9,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 7,
@@ -881,7 +353,7 @@
   },
   {
     "ds": "2026-07-27 08:00:00",
-    "Temperature": 28.6,
+    "Temperature": 28.1,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 8,
@@ -892,7 +364,7 @@
   },
   {
     "ds": "2026-07-27 09:00:00",
-    "Temperature": 29.3,
+    "Temperature": 29.1,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 9,
@@ -903,7 +375,7 @@
   },
   {
     "ds": "2026-07-27 10:00:00",
-    "Temperature": 29.7,
+    "Temperature": 29.5,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 10,
@@ -914,7 +386,7 @@
   },
   {
     "ds": "2026-07-27 11:00:00",
-    "Temperature": 29.4,
+    "Temperature": 29.7,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 11,
@@ -925,7 +397,7 @@
   },
   {
     "ds": "2026-07-27 12:00:00",
-    "Temperature": 29.7,
+    "Temperature": 30.0,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 12,
@@ -947,7 +419,7 @@
   },
   {
     "ds": "2026-07-27 14:00:00",
-    "Temperature": 29.9,
+    "Temperature": 29.8,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 14,
@@ -958,7 +430,7 @@
   },
   {
     "ds": "2026-07-27 15:00:00",
-    "Temperature": 28.7,
+    "Temperature": 29.4,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 15,
@@ -969,7 +441,7 @@
   },
   {
     "ds": "2026-07-27 16:00:00",
-    "Temperature": 28.5,
+    "Temperature": 29.0,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 16,
@@ -980,7 +452,7 @@
   },
   {
     "ds": "2026-07-27 17:00:00",
-    "Temperature": 25.9,
+    "Temperature": 28.5,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 17,
@@ -991,7 +463,7 @@
   },
   {
     "ds": "2026-07-27 18:00:00",
-    "Temperature": 25.5,
+    "Temperature": 27.8,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 18,
@@ -1002,7 +474,7 @@
   },
   {
     "ds": "2026-07-27 19:00:00",
-    "Temperature": 25.9,
+    "Temperature": 27.7,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 19,
@@ -1013,7 +485,7 @@
   },
   {
     "ds": "2026-07-27 20:00:00",
-    "Temperature": 26.2,
+    "Temperature": 27.3,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 20,
@@ -1024,7 +496,7 @@
   },
   {
     "ds": "2026-07-27 21:00:00",
-    "Temperature": 26.3,
+    "Temperature": 27.2,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 21,
@@ -1035,7 +507,7 @@
   },
   {
     "ds": "2026-07-27 22:00:00",
-    "Temperature": 26.2,
+    "Temperature": 27.9,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 22,
@@ -1046,7 +518,7 @@
   },
   {
     "ds": "2026-07-27 23:00:00",
-    "Temperature": 25.9,
+    "Temperature": 27.7,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 23,
@@ -1057,7 +529,7 @@
   },
   {
     "ds": "2026-07-28 00:00:00",
-    "Temperature": 25.8,
+    "Temperature": 26.1,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 0,
@@ -1068,7 +540,7 @@
   },
   {
     "ds": "2026-07-28 01:00:00",
-    "Temperature": 25.6,
+    "Temperature": 25.5,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 1,
@@ -1079,7 +551,7 @@
   },
   {
     "ds": "2026-07-28 02:00:00",
-    "Temperature": 25.4,
+    "Temperature": 24.3,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 2,
@@ -1101,7 +573,7 @@
   },
   {
     "ds": "2026-07-28 04:00:00",
-    "Temperature": 25.0,
+    "Temperature": 25.5,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 4,
@@ -1123,7 +595,7 @@
   },
   {
     "ds": "2026-07-28 06:00:00",
-    "Temperature": 25.5,
+    "Temperature": 25.3,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 6,
@@ -1134,7 +606,7 @@
   },
   {
     "ds": "2026-07-28 07:00:00",
-    "Temperature": 26.2,
+    "Temperature": 25.7,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 7,
@@ -1145,7 +617,7 @@
   },
   {
     "ds": "2026-07-28 08:00:00",
-    "Temperature": 26.8,
+    "Temperature": 27.1,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 8,
@@ -1156,7 +628,7 @@
   },
   {
     "ds": "2026-07-28 09:00:00",
-    "Temperature": 27.4,
+    "Temperature": 26.5,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 9,
@@ -1167,7 +639,7 @@
   },
   {
     "ds": "2026-07-28 10:00:00",
-    "Temperature": 28.0,
+    "Temperature": 27.6,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 10,
@@ -1178,7 +650,7 @@
   },
   {
     "ds": "2026-07-28 11:00:00",
-    "Temperature": 28.3,
+    "Temperature": 27.9,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 11,
@@ -1189,7 +661,7 @@
   },
   {
     "ds": "2026-07-28 12:00:00",
-    "Temperature": 28.4,
+    "Temperature": 26.8,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 12,
@@ -1200,7 +672,7 @@
   },
   {
     "ds": "2026-07-28 13:00:00",
-    "Temperature": 28.2,
+    "Temperature": 27.5,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 13,
@@ -1211,7 +683,7 @@
   },
   {
     "ds": "2026-07-28 14:00:00",
-    "Temperature": 27.9,
+    "Temperature": 27.1,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 14,
@@ -1222,7 +694,7 @@
   },
   {
     "ds": "2026-07-28 15:00:00",
-    "Temperature": 27.6,
+    "Temperature": 27.1,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 15,
@@ -1244,7 +716,7 @@
   },
   {
     "ds": "2026-07-28 17:00:00",
-    "Temperature": 26.9,
+    "Temperature": 26.0,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 17,
@@ -1255,7 +727,7 @@
   },
   {
     "ds": "2026-07-28 18:00:00",
-    "Temperature": 26.5,
+    "Temperature": 25.6,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 18,
@@ -1266,7 +738,7 @@
   },
   {
     "ds": "2026-07-28 19:00:00",
-    "Temperature": 26.0,
+    "Temperature": 25.8,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 19,
@@ -1277,7 +749,7 @@
   },
   {
     "ds": "2026-07-28 20:00:00",
-    "Temperature": 25.8,
+    "Temperature": 25.7,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 20,
@@ -1288,7 +760,7 @@
   },
   {
     "ds": "2026-07-28 21:00:00",
-    "Temperature": 25.9,
+    "Temperature": 25.6,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 21,
@@ -1299,7 +771,7 @@
   },
   {
     "ds": "2026-07-28 22:00:00",
-    "Temperature": 26.1,
+    "Temperature": 25.0,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 22,
@@ -1310,7 +782,7 @@
   },
   {
     "ds": "2026-07-28 23:00:00",
-    "Temperature": 26.3,
+    "Temperature": 25.8,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 23,
@@ -1321,7 +793,7 @@
   },
   {
     "ds": "2026-07-29 00:00:00",
-    "Temperature": 26.1,
+    "Temperature": 25.9,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 0,
@@ -1332,7 +804,7 @@
   },
   {
     "ds": "2026-07-29 01:00:00",
-    "Temperature": 25.9,
+    "Temperature": 26.0,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 1,
@@ -1343,7 +815,7 @@
   },
   {
     "ds": "2026-07-29 02:00:00",
-    "Temperature": 25.6,
+    "Temperature": 25.9,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 2,
@@ -1354,7 +826,7 @@
   },
   {
     "ds": "2026-07-29 03:00:00",
-    "Temperature": 25.3,
+    "Temperature": 25.7,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 3,
@@ -1376,7 +848,7 @@
   },
   {
     "ds": "2026-07-29 05:00:00",
-    "Temperature": 24.9,
+    "Temperature": 25.3,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 5,
@@ -1387,7 +859,7 @@
   },
   {
     "ds": "2026-07-29 06:00:00",
-    "Temperature": 23.9,
+    "Temperature": 25.4,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 6,
@@ -1398,7 +870,7 @@
   },
   {
     "ds": "2026-07-29 07:00:00",
-    "Temperature": 25.9,
+    "Temperature": 26.2,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 7,
@@ -1409,7 +881,7 @@
   },
   {
     "ds": "2026-07-29 08:00:00",
-    "Temperature": 27.2,
+    "Temperature": 26.7,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 8,
@@ -1420,7 +892,7 @@
   },
   {
     "ds": "2026-07-29 09:00:00",
-    "Temperature": 27.9,
+    "Temperature": 27.6,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 9,
@@ -1431,7 +903,7 @@
   },
   {
     "ds": "2026-07-29 10:00:00",
-    "Temperature": 28.9,
+    "Temperature": 28.3,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 10,
@@ -1442,7 +914,7 @@
   },
   {
     "ds": "2026-07-29 11:00:00",
-    "Temperature": 30.5,
+    "Temperature": 27.1,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 11,
@@ -1453,7 +925,7 @@
   },
   {
     "ds": "2026-07-29 12:00:00",
-    "Temperature": 31.3,
+    "Temperature": 28.1,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 12,
@@ -1464,7 +936,7 @@
   },
   {
     "ds": "2026-07-29 13:00:00",
-    "Temperature": 31.0,
+    "Temperature": 27.3,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 13,
@@ -1475,7 +947,7 @@
   },
   {
     "ds": "2026-07-29 14:00:00",
-    "Temperature": 29.7,
+    "Temperature": 28.4,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 14,
@@ -1486,7 +958,7 @@
   },
   {
     "ds": "2026-07-29 15:00:00",
-    "Temperature": 28.4,
+    "Temperature": 27.4,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 15,
@@ -1497,7 +969,7 @@
   },
   {
     "ds": "2026-07-29 16:00:00",
-    "Temperature": 26.8,
+    "Temperature": 27.2,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 16,
@@ -1508,7 +980,7 @@
   },
   {
     "ds": "2026-07-29 17:00:00",
-    "Temperature": 26.0,
+    "Temperature": 27.5,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 17,
@@ -1519,7 +991,7 @@
   },
   {
     "ds": "2026-07-29 18:00:00",
-    "Temperature": 25.1,
+    "Temperature": 27.3,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 18,
@@ -1530,7 +1002,7 @@
   },
   {
     "ds": "2026-07-29 19:00:00",
-    "Temperature": 25.6,
+    "Temperature": 27.2,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 19,
@@ -1541,7 +1013,7 @@
   },
   {
     "ds": "2026-07-29 20:00:00",
-    "Temperature": 26.0,
+    "Temperature": 27.3,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 20,
@@ -1552,7 +1024,7 @@
   },
   {
     "ds": "2026-07-29 21:00:00",
-    "Temperature": 26.2,
+    "Temperature": 27.1,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 21,
@@ -1563,7 +1035,7 @@
   },
   {
     "ds": "2026-07-29 22:00:00",
-    "Temperature": 26.3,
+    "Temperature": 25.6,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 22,
@@ -1574,7 +1046,7 @@
   },
   {
     "ds": "2026-07-29 23:00:00",
-    "Temperature": 26.3,
+    "Temperature": 26.0,
     "is_weekend": 0,
     "is_public_holiday": 1,
     "hour": 23,
@@ -1596,7 +1068,7 @@
   },
   {
     "ds": "2026-07-30 01:00:00",
-    "Temperature": 25.8,
+    "Temperature": 25.6,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 1,
@@ -1618,7 +1090,7 @@
   },
   {
     "ds": "2026-07-30 03:00:00",
-    "Temperature": 25.3,
+    "Temperature": 25.0,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 3,
@@ -1629,7 +1101,7 @@
   },
   {
     "ds": "2026-07-30 04:00:00",
-    "Temperature": 25.1,
+    "Temperature": 25.3,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 4,
@@ -1640,7 +1112,7 @@
   },
   {
     "ds": "2026-07-30 05:00:00",
-    "Temperature": 25.2,
+    "Temperature": 25.6,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 5,
@@ -1651,7 +1123,7 @@
   },
   {
     "ds": "2026-07-30 06:00:00",
-    "Temperature": 25.5,
+    "Temperature": 26.1,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 6,
@@ -1662,7 +1134,7 @@
   },
   {
     "ds": "2026-07-30 07:00:00",
-    "Temperature": 26.1,
+    "Temperature": 26.8,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 7,
@@ -1673,7 +1145,7 @@
   },
   {
     "ds": "2026-07-30 08:00:00",
-    "Temperature": 26.8,
+    "Temperature": 27.4,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 8,
@@ -1684,7 +1156,7 @@
   },
   {
     "ds": "2026-07-30 09:00:00",
-    "Temperature": 27.5,
+    "Temperature": 27.7,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 9,
@@ -1695,7 +1167,7 @@
   },
   {
     "ds": "2026-07-30 10:00:00",
-    "Temperature": 28.1,
+    "Temperature": 27.9,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 10,
@@ -1706,7 +1178,7 @@
   },
   {
     "ds": "2026-07-30 11:00:00",
-    "Temperature": 28.4,
+    "Temperature": 28.0,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 11,
@@ -1717,7 +1189,7 @@
   },
   {
     "ds": "2026-07-30 12:00:00",
-    "Temperature": 28.4,
+    "Temperature": 28.2,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 12,
@@ -1739,7 +1211,7 @@
   },
   {
     "ds": "2026-07-30 14:00:00",
-    "Temperature": 27.9,
+    "Temperature": 28.2,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 14,
@@ -1750,7 +1222,7 @@
   },
   {
     "ds": "2026-07-30 15:00:00",
-    "Temperature": 27.5,
+    "Temperature": 28.0,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 15,
@@ -1761,7 +1233,7 @@
   },
   {
     "ds": "2026-07-30 16:00:00",
-    "Temperature": 27.1,
+    "Temperature": 27.8,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 16,
@@ -1772,7 +1244,7 @@
   },
   {
     "ds": "2026-07-30 17:00:00",
-    "Temperature": 26.8,
+    "Temperature": 27.4,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 17,
@@ -1783,7 +1255,7 @@
   },
   {
     "ds": "2026-07-30 18:00:00",
-    "Temperature": 26.5,
+    "Temperature": 27.1,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 18,
@@ -1794,7 +1266,7 @@
   },
   {
     "ds": "2026-07-30 19:00:00",
-    "Temperature": 26.2,
+    "Temperature": 26.7,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 19,
@@ -1805,7 +1277,7 @@
   },
   {
     "ds": "2026-07-30 20:00:00",
-    "Temperature": 25.9,
+    "Temperature": 26.3,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 20,
@@ -1816,7 +1288,7 @@
   },
   {
     "ds": "2026-07-30 21:00:00",
-    "Temperature": 25.6,
+    "Temperature": 26.0,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 21,
@@ -1827,7 +1299,7 @@
   },
   {
     "ds": "2026-07-30 22:00:00",
-    "Temperature": 25.4,
+    "Temperature": 25.7,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 22,
@@ -1838,7 +1310,7 @@
   },
   {
     "ds": "2026-07-30 23:00:00",
-    "Temperature": 25.2,
+    "Temperature": 25.5,
     "is_weekend": 0,
     "is_public_holiday": 0,
     "hour": 23,
@@ -1846,5 +1318,533 @@
     "on_holiday": false,
     "on_weekend": false,
     "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 00:00:00",
+    "Temperature": 25.4,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 0,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 01:00:00",
+    "Temperature": 25.4,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 1,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 02:00:00",
+    "Temperature": 25.4,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 2,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 03:00:00",
+    "Temperature": 25.4,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 3,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 04:00:00",
+    "Temperature": 25.3,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 4,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 05:00:00",
+    "Temperature": 25.4,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 5,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 06:00:00",
+    "Temperature": 25.7,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 6,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 07:00:00",
+    "Temperature": 26.3,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 7,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 08:00:00",
+    "Temperature": 26.8,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 8,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 09:00:00",
+    "Temperature": 27.4,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 9,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 10:00:00",
+    "Temperature": 28.0,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 10,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 11:00:00",
+    "Temperature": 28.2,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 11,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 12:00:00",
+    "Temperature": 27.7,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 12,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 13:00:00",
+    "Temperature": 26.8,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 13,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 14:00:00",
+    "Temperature": 26.2,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 14,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 15:00:00",
+    "Temperature": 26.3,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 15,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 16:00:00",
+    "Temperature": 26.6,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 16,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 17:00:00",
+    "Temperature": 26.7,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 17,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 18:00:00",
+    "Temperature": 26.5,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 18,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 19:00:00",
+    "Temperature": 26.1,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 19,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 20:00:00",
+    "Temperature": 25.7,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 20,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 21:00:00",
+    "Temperature": 25.5,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 21,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 22:00:00",
+    "Temperature": 25.4,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 22,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-07-31 23:00:00",
+    "Temperature": 25.3,
+    "is_weekend": 0,
+    "is_public_holiday": 0,
+    "hour": 23,
+    "day": 4,
+    "on_holiday": false,
+    "on_weekend": false,
+    "on_weekday": true
+  },
+  {
+    "ds": "2026-08-01 00:00:00",
+    "Temperature": 25.2,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 0,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 01:00:00",
+    "Temperature": 25.1,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 1,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 02:00:00",
+    "Temperature": 25.1,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 2,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 03:00:00",
+    "Temperature": 25.2,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 3,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 04:00:00",
+    "Temperature": 25.3,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 4,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 05:00:00",
+    "Temperature": 25.6,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 5,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 06:00:00",
+    "Temperature": 26.0,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 6,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 07:00:00",
+    "Temperature": 26.5,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 7,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 08:00:00",
+    "Temperature": 26.8,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 8,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 09:00:00",
+    "Temperature": 26.7,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 9,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 10:00:00",
+    "Temperature": 26.3,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 10,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 11:00:00",
+    "Temperature": 26.1,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 11,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 12:00:00",
+    "Temperature": 26.7,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 12,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 13:00:00",
+    "Temperature": 26.6,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 13,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 14:00:00",
+    "Temperature": 26.5,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 14,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 15:00:00",
+    "Temperature": 26.3,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 15,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 16:00:00",
+    "Temperature": 26.2,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 16,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 17:00:00",
+    "Temperature": 26.1,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 17,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 18:00:00",
+    "Temperature": 26.0,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 18,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 19:00:00",
+    "Temperature": 25.9,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 19,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 20:00:00",
+    "Temperature": 25.9,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 20,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 21:00:00",
+    "Temperature": 25.8,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 21,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 22:00:00",
+    "Temperature": 25.8,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 22,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
+  },
+  {
+    "ds": "2026-08-01 23:00:00",
+    "Temperature": 25.7,
+    "is_weekend": 1,
+    "is_public_holiday": 0,
+    "hour": 23,
+    "day": 5,
+    "on_holiday": false,
+    "on_weekend": true,
+    "on_weekday": false
   }
 ]

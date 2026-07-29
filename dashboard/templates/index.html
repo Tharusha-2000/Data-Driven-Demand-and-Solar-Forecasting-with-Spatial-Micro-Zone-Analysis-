@@ -235,7 +235,119 @@
     <!-- ══════════════════════════════════════════ -->
     <main class="main-content page-content hidden" id="page-products">
 
+        <!-- CONTROL PANEL / HEADER -->
+        <section class="control-panel glass-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+                <div>
+                    <h2 class="section-title">
+                        <span class="section-icon">☀️</span>
+                        7-Day Solar Export Generation Forecast
+                    </h2>
+                    <p style="color:var(--text-secondary);font-size:0.88rem;margin:0.25rem 0 0;">
+                        Neural Network (Dual-Input Keras Model) solar export predictions based on 168-hour historical telemetry & Open-Meteo GHI forecasts for Nugegoda.
+                    </p>
+                </div>
+                <div>
+                    <button id="btn-solar-refresh" class="btn btn-primary" onclick="fetchSolarForecast()">
+                        <span class="btn-icon">🔄</span> Refresh Solar Forecast
+                    </button>
+                </div>
+            </div>
+        </section>
 
+        <!-- KPI CARDS -->
+        <section class="kpi-section" style="margin-top:1.5rem;">
+            <div class="kpi-grid">
+                <div class="kpi-card glass-card">
+                    <div class="kpi-icon" style="background:rgba(245, 158, 11, 0.15); color:#f59e0b;">☀️</div>
+                    <div class="kpi-content">
+                        <span class="kpi-value" id="solar-kpi-total">—</span>
+                        <span class="kpi-label">7-Day Total Export</span>
+                        <span class="kpi-detail">Cumulative 168-hour kWh</span>
+                    </div>
+                </div>
+                <div class="kpi-card glass-card">
+                    <div class="kpi-icon" style="background:rgba(234, 179, 8, 0.15); color:#eab308;">⚡</div>
+                    <div class="kpi-content">
+                        <span class="kpi-value" id="solar-kpi-peak">—</span>
+                        <span class="kpi-label">Peak Export Rate</span>
+                        <span class="kpi-detail" id="solar-kpi-peak-time">—</span>
+                    </div>
+                </div>
+                <div class="kpi-card glass-card">
+                    <div class="kpi-icon" style="background:rgba(59, 130, 246, 0.15); color:#3b82f6;">📊</div>
+                    <div class="kpi-content">
+                        <span class="kpi-value" id="solar-kpi-avg">—</span>
+                        <span class="kpi-label">Avg Daily Generation</span>
+                        <span class="kpi-detail">Daily average kWh</span>
+                    </div>
+                </div>
+                <div class="kpi-card glass-card">
+                    <div class="kpi-icon" style="background:rgba(16, 185, 129, 0.15); color:#10b981;">🌤️</div>
+                    <div class="kpi-content">
+                        <span class="kpi-value" id="solar-kpi-ghi">—</span>
+                        <span class="kpi-label">Max Solar Radiation</span>
+                        <span class="kpi-detail">Peak GHI (W/m²)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7-DAY HOURLY SOLAR FORECAST CHART -->
+        <section class="chart-section glass-card" style="margin-top:1.5rem;">
+            <div class="chart-header">
+                <h2 class="section-title">
+                    <span class="section-icon">📈</span>
+                    <span>168-Hour Solar Export (kW) & Irradiance (GHI)</span>
+                </h2>
+                <span class="chart-badge" id="solar-chart-badge" style="background:rgba(245,158,11,0.15); color:#f59e0b;">7-Day Lookahead</span>
+            </div>
+            <div class="chart-container" style="position:relative; height:380px;">
+                <canvas id="solarForecastChart"></canvas>
+            </div>
+        </section>
+
+        <!-- DAILY TOTALS BAR CHART -->
+        <section class="chart-section glass-card" style="margin-top:1.5rem;">
+            <div class="chart-header">
+                <h2 class="section-title">
+                    <span class="section-icon">📊</span>
+                    <span>Daily Solar Export Generation (kWh/day)</span>
+                </h2>
+                <span class="chart-badge">Daily Totals</span>
+            </div>
+            <div class="chart-container" style="position:relative; height:320px;">
+                <canvas id="solarDailyChart"></canvas>
+            </div>
+        </section>
+
+        <!-- HOURLY SOLAR DATA BREAKDOWN TABLE -->
+        <section class="chart-section glass-card" style="margin-top:1.5rem;">
+            <div class="chart-header">
+                <h2 class="section-title">
+                    <span class="section-icon">📋</span>
+                    <span>Hourly Solar Export Breakdown</span>
+                </h2>
+                <span class="chart-badge" id="solar-table-badge">168 Hourly Rows</span>
+            </div>
+            <div class="orders-table-wrapper" style="max-height:420px; overflow-y:auto;">
+                <table class="comparison-table orders-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Predicted Export (kW)</th>
+                            <th>GHI (W/m²)</th>
+                            <th>Temperature (°C)</th>
+                            <th>Cloud Cover (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="solar-table-body">
+                        <tr><td colspan="6" style="text-align:center; padding:2rem; color:var(--text-muted);">Loading solar forecast data…</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
     </main>
 
@@ -260,7 +372,8 @@
                 Overview Dashboard — 7-Day Demand Forecast
             </h2>
             <p style="color:var(--text-secondary);font-size:0.88rem;margin:0.25rem 0 0;">
-                Comprehensive 7-day lookahead displaying total daily electricity demand, peak loads, and consumption trends for Nugegoda.
+                Comprehensive 7-day lookahead displaying total daily electricity demand, peak loads, and consumption
+                trends for Nugegoda.
             </p>
         </section>
 
@@ -332,10 +445,9 @@
                             <th>Date</th>
                             <th>Day Type</th>
                             <th>Total Demand (kWh)</th>
-                            <th>Peak Load (kW)</th>
+                            <th>Solar Export (kWh)</th>
+                            <th>External Grid (kWh)</th>
                             <th>Peak Time</th>
-                            <th>Min Load (kW)</th>
-                            <th>Avg Load (kW)</th>
                         </tr>
                     </thead>
                     <tbody id="overview-7day-table-body"></tbody>
@@ -362,6 +474,13 @@
             // Update nav active state
             document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
             if (clickedLink) clickedLink.classList.add('active');
+
+            // Trigger data load/chart render for target tab
+            if (pageId === 'products' && typeof fetchSolarForecast === 'function') {
+                fetchSolarForecast();
+            } else if (pageId === 'contact' && typeof fetch7DayOverview === 'function') {
+                fetch7DayOverview();
+            }
 
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
