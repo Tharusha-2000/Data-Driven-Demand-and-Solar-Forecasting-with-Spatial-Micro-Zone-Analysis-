@@ -20,6 +20,10 @@
     <script
         src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.1.0/dist/chartjs-plugin-annotation.min.js"></script>
 
+    <!-- Leaflet (Spatial Micro-Zone Analysis map) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
@@ -229,10 +233,6 @@
         </section>
 
     </main>
-
-    <!-- ══════════════════════════════════════════ -->
-    <!-- PAGE: Solar Generation                     -->
-    <!-- ══════════════════════════════════════════ -->
     <main class="main-content page-content hidden" id="page-products">
 
         <!-- CONTROL PANEL / HEADER -->
@@ -350,19 +350,225 @@
         </section>
 
     </main>
-
-    <!-- ══════════════════════════════════════════ -->
-    <!-- PAGE: Spatial Micro-Zone Analysis          -->
-    <!-- ══════════════════════════════════════════ -->
     <main class="main-content page-content hidden" id="page-orders">
 
+        <!-- CONTROL PANEL / INTRO -->
+        <section class="control-panel glass-card">
+            <h2 class="section-title">
+                <span class="section-icon">🗺️</span>
+                Spatial Micro-Zone Analysis
+            </h2>
+            <p style="color:var(--text-secondary);font-size:0.88rem;margin:0.25rem 0 0;">
+                348 households across Nugegoda, partitioned into 3 geographically contiguous
+                micro-zones. Each zone has its own demand forecast, confidence score, surge
+                warning and structural trend — ranked into a single operational priority list.
+            </p>
+            <p id="microzone-window-note"
+                style="color:var(--text-muted);font-size:0.78rem;margin-top:0.75rem;">
+            </p>
+        </section>
 
+        <!-- KPI CARDS -->
+        <section class="kpi-section">
+            <div class="kpi-grid">
+                <div class="kpi-card glass-card">
+                    <div class="kpi-icon kpi-icon-peak">🚨</div>
+                    <div class="kpi-content">
+                        <span class="kpi-value" id="mz-kpi-top-zone">—</span>
+                        <span class="kpi-label">Top Priority Zone</span>
+                        <span class="kpi-detail" id="mz-kpi-top-action">—</span>
+                    </div>
+                </div>
+                <div class="kpi-card glass-card">
+                    <div class="kpi-icon kpi-icon-scenario">⚠️</div>
+                    <div class="kpi-content">
+                        <span class="kpi-value" id="mz-kpi-warnings">—</span>
+                        <span class="kpi-label">Surge Warnings</span>
+                        <span class="kpi-detail">of 3 zones, tomorrow</span>
+                    </div>
+                </div>
+                <div class="kpi-card glass-card">
+                    <div class="kpi-icon kpi-icon-avg">📈</div>
+                    <div class="kpi-content">
+                        <span class="kpi-value" id="mz-kpi-trends">—</span>
+                        <span class="kpi-label">Zones on a Trend</span>
+                        <span class="kpi-detail">rising or falling</span>
+                    </div>
+                </div>
+                <div class="kpi-card glass-card">
+                    <div class="kpi-icon kpi-icon-min">🏠</div>
+                    <div class="kpi-content">
+                        <span class="kpi-value" id="mz-kpi-households">—</span>
+                        <span class="kpi-label">Households Mapped</span>
+                        <span class="kpi-detail">across 3 zones</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ZONE MAP -->
+        <section class="chart-section glass-card">
+            <div class="chart-header">
+                <h2 class="section-title">
+                    <span class="section-icon">🗺️</span>
+                    Zone Risk Map
+                </h2>
+                <span class="chart-badge" id="mz-map-badge">Next-day risk</span>
+            </div>
+            <div id="microzoneMap" style="height:420px; border-radius:var(--radius-md); overflow:hidden;"></div>
+            <div style="display:flex; gap:1.25rem; margin-top:1rem; font-size:0.8rem; color:var(--text-secondary);">
+                <span><span class="tier-dot tier-dot-high"></span> High risk</span>
+                <span><span class="tier-dot tier-dot-medium"></span> Medium risk</span>
+                <span><span class="tier-dot tier-dot-low"></span> Low risk</span>
+            </div>
+        </section>
+
+        <!-- OPERATIONAL PRIORITY LIST -->
+        <section class="chart-section glass-card" style="margin-top:2rem;">
+            <div class="chart-header">
+                <h2 class="section-title">
+                    <span class="section-icon">📋</span>
+                    Operational Priority List
+                </h2>
+                <span class="chart-badge" id="mz-priority-badge">3 zones</span>
+            </div>
+            <div class="orders-table-wrapper">
+                <table class="comparison-table orders-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Zone</th>
+                            <th>Priority</th>
+                            <th>Risk Tier</th>
+                            <th>Warning</th>
+                            <th>Trend</th>
+                            <th>Confidence</th>
+                            <th>Peak Forecast</th>
+                            <th>Zone Total (Peak Hr)</th>
+                            <th>Zone Daily Energy</th>
+                            <th>Recommended Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mz-priority-table-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- DOES THE DETECTOR ACTUALLY WORK? -->
+        <section class="chart-section glass-card" style="margin-top:2rem;">
+            <div class="chart-header">
+                <h2 class="section-title">
+                    <span class="section-icon">🧪</span>
+                    Does the Detector Actually Work?
+                </h2>
+                <span class="chart-badge">Validation</span>
+            </div>
+            <p style="color:var(--text-secondary);font-size:0.85rem;margin-bottom:1.5rem;">
+                A calm week produces low risk for every zone — that's expected, not a blind spot.
+                These three checks show the detector <em>would</em> catch a stressful event: a
+                controlled what-if surge you can run yourself, each zone's own worst observed day
+                replayed, and a real past peak day used to confirm the ranking matches what
+                actually happened.
+            </p>
+
+            <!-- 8.1 Scenario Simulator -->
+            <div style="margin-bottom:2rem;">
+                <h3 style="font-size:0.95rem;font-weight:600;margin-bottom:0.25rem;">
+                    Scenario Simulator — controlled what-if surge
+                </h3>
+                <p style="color:var(--text-muted);font-size:0.8rem;margin-bottom:1rem;">
+                    Set a surge % per zone (e.g. a heatwave driving AC load, or EV chargers coming
+                    online on several feeders at once) and see how each zone's risk tier — and the
+                    whole priority ranking — responds. Leave a zone at 0% to keep it unchanged.
+                    This is a what-if used to demonstrate the detector — it does not change the
+                    real forecast or priority list above.
+                </p>
+                <div id="mz-scenario-inputs" style="display:flex; gap:1.25rem; align-items:flex-end; flex-wrap:wrap;"></div>
+                <button class="btn btn-secondary" style="margin-top:1rem;" onclick="runMicrozoneScenario()">
+                    <span class="btn-icon">⚡</span> Run Scenario
+                </button>
+                <div id="mz-scenario-result" style="margin-top:1.25rem;"></div>
+
+                <!-- Scenario map + priority list — separate from the real ones above -->
+                <div id="mz-scenario-outputs" style="display:none; margin-top:1.75rem;">
+                    <h4 style="font-size:0.85rem;font-weight:600;color:var(--text-secondary);margin-bottom:0.75rem;">
+                        Zone Risk Map — under this scenario
+                    </h4>
+                    <div id="microzoneScenarioMap" style="height:380px; border-radius:var(--radius-md); overflow:hidden;"></div>
+
+                    <h4 style="font-size:0.85rem;font-weight:600;color:var(--text-secondary);margin:1.5rem 0 0.75rem;">
+                        Operational Priority List — under this scenario
+                    </h4>
+                    <div class="orders-table-wrapper">
+                        <table class="comparison-table orders-table">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Zone</th>
+                                    <th>Surge %</th>
+                                    <th>Priority</th>
+                                    <th>Risk Tier</th>
+                                    <th>Warning</th>
+                                    <th>Peak (Scenario)</th>
+                                    <th>Recommended Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="mz-scenario-priority-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8.2 Worst-Day Replay -->
+            <div style="margin-bottom:2rem;">
+                <h3 style="font-size:0.95rem;font-weight:600;margin-bottom:0.25rem;">
+                    Worst-Day Replay — real observed events only
+                </h3>
+                <p style="color:var(--text-muted);font-size:0.8rem;margin-bottom:1rem;">
+                    If tomorrow repeated each zone's own worst observed day, how would it rank?
+                    No injected numbers — only real historical peaks.
+                </p>
+                <div class="orders-table-wrapper">
+                    <table class="comparison-table orders-table">
+                        <thead>
+                            <tr>
+                                <th>Zone</th>
+                                <th>Worst Observed Peak</th>
+                                <th>Worst Day</th>
+                                <th>Risk-Adj. Peak if Repeated</th>
+                                <th>Tier if Repeated</th>
+                            </tr>
+                        </thead>
+                        <tbody id="mz-worstday-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 8.3 Historical Validation -->
+            <div>
+                <h3 style="font-size:0.95rem;font-weight:600;margin-bottom:0.25rem;">
+                    Historical Validation — proof, not a what-if
+                </h3>
+                <p id="mz-validation-note" style="color:var(--text-muted);font-size:0.8rem;margin-bottom:1rem;"></p>
+                <div class="orders-table-wrapper">
+                    <table class="comparison-table orders-table">
+                        <thead>
+                            <tr>
+                                <th>Zone</th>
+                                <th>Actual Peak That Day</th>
+                                <th>Peak Hour</th>
+                                <th>Percentile vs. Own History</th>
+                                <th>Tier That Day</th>
+                            </tr>
+                        </thead>
+                        <tbody id="mz-validation-table-body"></tbody>
+                    </table>
+                </div>
+                <p id="mz-validation-verdict" style="margin-top:0.85rem;font-size:0.85rem;"></p>
+            </div>
+        </section>
 
     </main>
-
-    <!-- ══════════════════════════════════════════ -->
-    <!-- PAGE: Overview Dashboard                   -->
-    <!-- ══════════════════════════════════════════ -->
     <main class="main-content page-content hidden" id="page-contact">
 
         <!-- OVERVIEW CONTROL PANEL / HEADER -->
@@ -463,8 +669,11 @@
     </footer>
 
     <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/microzone.js') }}"></script>
     <script>
         // ── Page Navigation ──────────────────────────────
+        let microzoneLoaded = false;
+
         function showPage(pageId, clickedLink) {
             // Hide all pages
             document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
@@ -480,6 +689,10 @@
                 fetchSolarForecast();
             } else if (pageId === 'contact' && typeof fetch7DayOverview === 'function') {
                 fetch7DayOverview();
+            } else if (pageId === 'orders' && !microzoneLoaded) {
+                // Lazy-load the Spatial Micro-Zone Analysis tab the first time it's opened
+                microzoneLoaded = true;
+                fetchMicrozoneOverview();
             }
 
             // Scroll to top
