@@ -1,1121 +1,545 @@
 [
   {
-    "Date": "2026-07-26",
+    "Date": "2026-07-29",
     "Time": "00:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 27.0,
-    "Cloud Cover (%)": 59,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "01:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 26.4,
-    "Cloud Cover (%)": 52,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "02:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 26.6,
-    "Cloud Cover (%)": 61,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "03:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 26.5,
-    "Cloud Cover (%)": 51,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "04:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 26.5,
-    "Cloud Cover (%)": 51,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "05:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 26.3,
-    "Cloud Cover (%)": 43,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "06:00",
-    "EXPORT_KW": 6.65,
-    "Temperature (°C)": 26.3,
-    "Cloud Cover (%)": 59,
-    "Solar Radiation (W/m²)": 7.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "07:00",
-    "EXPORT_KW": 43.85,
-    "Temperature (°C)": 27.3,
-    "Cloud Cover (%)": 53,
-    "Solar Radiation (W/m²)": 94.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "08:00",
-    "EXPORT_KW": 116.22,
-    "Temperature (°C)": 28.4,
-    "Cloud Cover (%)": 53,
-    "Solar Radiation (W/m²)": 280.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "09:00",
-    "EXPORT_KW": 234.59,
-    "Temperature (°C)": 29.8,
-    "Cloud Cover (%)": 52,
-    "Solar Radiation (W/m²)": 523.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "10:00",
-    "EXPORT_KW": 289.27,
-    "Temperature (°C)": 30.0,
-    "Cloud Cover (%)": 56,
-    "Solar Radiation (W/m²)": 698.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "11:00",
-    "EXPORT_KW": 311.55,
-    "Temperature (°C)": 30.8,
-    "Cloud Cover (%)": 55,
-    "Solar Radiation (W/m²)": 818.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "12:00",
-    "EXPORT_KW": 314.66,
-    "Temperature (°C)": 30.9,
-    "Cloud Cover (%)": 73,
-    "Solar Radiation (W/m²)": 907.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "13:00",
-    "EXPORT_KW": 291.99,
-    "Temperature (°C)": 30.8,
-    "Cloud Cover (%)": 86,
-    "Solar Radiation (W/m²)": 898.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "14:00",
-    "EXPORT_KW": 236.14,
-    "Temperature (°C)": 30.4,
-    "Cloud Cover (%)": 77,
-    "Solar Radiation (W/m²)": 759.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "15:00",
-    "EXPORT_KW": 160.09,
-    "Temperature (°C)": 30.1,
-    "Cloud Cover (%)": 74,
-    "Solar Radiation (W/m²)": 662.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "16:00",
-    "EXPORT_KW": 74.2,
-    "Temperature (°C)": 29.8,
-    "Cloud Cover (%)": 85,
-    "Solar Radiation (W/m²)": 467.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "17:00",
-    "EXPORT_KW": 21.65,
-    "Temperature (°C)": 28.9,
-    "Cloud Cover (%)": 58,
-    "Solar Radiation (W/m²)": 231.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "18:00",
-    "EXPORT_KW": 5.35,
     "Temperature (°C)": 28.2,
-    "Cloud Cover (%)": 9,
-    "Solar Radiation (W/m²)": 59.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "19:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 28.0,
-    "Cloud Cover (%)": 59,
+    "Cloud Cover (%)": 20,
     "Solar Radiation (W/m²)": 0.0
   },
   {
-    "Date": "2026-07-26",
-    "Time": "20:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 28.0,
-    "Cloud Cover (%)": 89,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "21:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 27.8,
-    "Cloud Cover (%)": 84,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "22:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 27.6,
-    "Cloud Cover (%)": 66,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-26",
-    "Time": "23:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 27.3,
-    "Cloud Cover (%)": 25,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-27",
-    "Time": "00:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 27.1,
-    "Cloud Cover (%)": 46,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-27",
+    "Date": "2026-07-29",
     "Time": "01:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 27.2,
-    "Cloud Cover (%)": 88,
+    "Temperature (°C)": 28.0,
+    "Cloud Cover (%)": 24,
     "Solar Radiation (W/m²)": 0.0
   },
   {
-    "Date": "2026-07-27",
+    "Date": "2026-07-29",
     "Time": "02:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 27.2,
-    "Cloud Cover (%)": 63,
+    "Temperature (°C)": 28.0,
+    "Cloud Cover (%)": 19,
     "Solar Radiation (W/m²)": 0.0
   },
   {
-    "Date": "2026-07-27",
+    "Date": "2026-07-29",
     "Time": "03:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 27.0,
-    "Cloud Cover (%)": 57,
+    "Temperature (°C)": 28.1,
+    "Cloud Cover (%)": 67,
     "Solar Radiation (W/m²)": 0.0
   },
   {
-    "Date": "2026-07-27",
+    "Date": "2026-07-29",
     "Time": "04:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 27.3,
-    "Cloud Cover (%)": 57,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-27",
-    "Time": "05:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 27.3,
-    "Cloud Cover (%)": 81,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-27",
-    "Time": "06:00",
-    "EXPORT_KW": 7.24,
-    "Temperature (°C)": 27.4,
-    "Cloud Cover (%)": 93,
-    "Solar Radiation (W/m²)": 7.0
-  },
-  {
-    "Date": "2026-07-27",
-    "Time": "07:00",
-    "EXPORT_KW": 36.53,
     "Temperature (°C)": 27.9,
-    "Cloud Cover (%)": 94,
-    "Solar Radiation (W/m²)": 128.0
-  },
-  {
-    "Date": "2026-07-27",
-    "Time": "08:00",
-    "EXPORT_KW": 83.21,
-    "Temperature (°C)": 28.1,
-    "Cloud Cover (%)": 95,
-    "Solar Radiation (W/m²)": 298.0
-  },
-  {
-    "Date": "2026-07-27",
-    "Time": "09:00",
-    "EXPORT_KW": 161.87,
-    "Temperature (°C)": 29.1,
-    "Cloud Cover (%)": 75,
-    "Solar Radiation (W/m²)": 473.0
-  },
-  {
-    "Date": "2026-07-27",
-    "Time": "10:00",
-    "EXPORT_KW": 238.15,
-    "Temperature (°C)": 29.5,
-    "Cloud Cover (%)": 66,
-    "Solar Radiation (W/m²)": 707.0
-  },
-  {
-    "Date": "2026-07-27",
-    "Time": "11:00",
-    "EXPORT_KW": 275.64,
-    "Temperature (°C)": 29.7,
-    "Cloud Cover (%)": 62,
-    "Solar Radiation (W/m²)": 841.0
-  },
-  {
-    "Date": "2026-07-27",
-    "Time": "12:00",
-    "EXPORT_KW": 284.44,
-    "Temperature (°C)": 30.0,
-    "Cloud Cover (%)": 87,
-    "Solar Radiation (W/m²)": 927.0
-  },
-  {
-    "Date": "2026-07-27",
-    "Time": "13:00",
-    "EXPORT_KW": 276.46,
-    "Temperature (°C)": 29.8,
-    "Cloud Cover (%)": 84,
-    "Solar Radiation (W/m²)": 907.0
-  },
-  {
-    "Date": "2026-07-27",
-    "Time": "14:00",
-    "EXPORT_KW": 236.1,
-    "Temperature (°C)": 29.8,
-    "Cloud Cover (%)": 98,
-    "Solar Radiation (W/m²)": 822.0
-  },
-  {
-    "Date": "2026-07-27",
-    "Time": "15:00",
-    "EXPORT_KW": 158.83,
-    "Temperature (°C)": 29.4,
-    "Cloud Cover (%)": 81,
-    "Solar Radiation (W/m²)": 605.0
-  },
-  {
-    "Date": "2026-07-27",
-    "Time": "16:00",
-    "EXPORT_KW": 78.56,
-    "Temperature (°C)": 29.0,
-    "Cloud Cover (%)": 94,
-    "Solar Radiation (W/m²)": 453.0
-  },
-  {
-    "Date": "2026-07-27",
-    "Time": "17:00",
-    "EXPORT_KW": 25.53,
-    "Temperature (°C)": 28.5,
-    "Cloud Cover (%)": 98,
-    "Solar Radiation (W/m²)": 231.0
-  },
-  {
-    "Date": "2026-07-27",
-    "Time": "18:00",
-    "EXPORT_KW": 1.64,
-    "Temperature (°C)": 27.8,
-    "Cloud Cover (%)": 96,
-    "Solar Radiation (W/m²)": 50.0
-  },
-  {
-    "Date": "2026-07-27",
-    "Time": "19:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 27.7,
-    "Cloud Cover (%)": 89,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-27",
-    "Time": "20:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 27.3,
-    "Cloud Cover (%)": 73,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-27",
-    "Time": "21:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 27.2,
-    "Cloud Cover (%)": 79,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-27",
-    "Time": "22:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 27.9,
-    "Cloud Cover (%)": 63,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-27",
-    "Time": "23:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 27.7,
-    "Cloud Cover (%)": 87,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-28",
-    "Time": "00:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 26.1,
-    "Cloud Cover (%)": 97,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-28",
-    "Time": "01:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.5,
     "Cloud Cover (%)": 48,
     "Solar Radiation (W/m²)": 0.0
   },
   {
-    "Date": "2026-07-28",
-    "Time": "02:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 24.3,
-    "Cloud Cover (%)": 95,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-28",
-    "Time": "03:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.2,
-    "Cloud Cover (%)": 74,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-28",
-    "Time": "04:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.5,
-    "Cloud Cover (%)": 89,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-28",
+    "Date": "2026-07-29",
     "Time": "05:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.1,
+    "Temperature (°C)": 27.5,
     "Cloud Cover (%)": 84,
     "Solar Radiation (W/m²)": 0.0
   },
   {
-    "Date": "2026-07-28",
+    "Date": "2026-07-29",
     "Time": "06:00",
-    "EXPORT_KW": 4.29,
-    "Temperature (°C)": 25.3,
-    "Cloud Cover (%)": 95,
-    "Solar Radiation (W/m²)": 5.0
-  },
-  {
-    "Date": "2026-07-28",
-    "Time": "07:00",
-    "EXPORT_KW": 35.57,
-    "Temperature (°C)": 25.7,
-    "Cloud Cover (%)": 59,
-    "Solar Radiation (W/m²)": 67.0
-  },
-  {
-    "Date": "2026-07-28",
-    "Time": "08:00",
-    "EXPORT_KW": 93.91,
-    "Temperature (°C)": 27.1,
-    "Cloud Cover (%)": 91,
-    "Solar Radiation (W/m²)": 276.0
-  },
-  {
-    "Date": "2026-07-28",
-    "Time": "09:00",
-    "EXPORT_KW": 168.96,
-    "Temperature (°C)": 26.5,
-    "Cloud Cover (%)": 82,
-    "Solar Radiation (W/m²)": 440.0
-  },
-  {
-    "Date": "2026-07-28",
-    "Time": "10:00",
-    "EXPORT_KW": 232.83,
+    "EXPORT_KW": 10.45,
     "Temperature (°C)": 27.6,
-    "Cloud Cover (%)": 80,
-    "Solar Radiation (W/m²)": 491.0
+    "Cloud Cover (%)": 34,
+    "Solar Radiation (W/m²)": 6.0
   },
   {
-    "Date": "2026-07-28",
+    "Date": "2026-07-29",
+    "Time": "07:00",
+    "EXPORT_KW": 37.14,
+    "Temperature (°C)": 28.4,
+    "Cloud Cover (%)": 90,
+    "Solar Radiation (W/m²)": 125.0
+  },
+  {
+    "Date": "2026-07-29",
+    "Time": "08:00",
+    "EXPORT_KW": 102.17,
+    "Temperature (°C)": 29.3,
+    "Cloud Cover (%)": 90,
+    "Solar Radiation (W/m²)": 353.0
+  },
+  {
+    "Date": "2026-07-29",
+    "Time": "09:00",
+    "EXPORT_KW": 186.84,
+    "Temperature (°C)": 29.6,
+    "Cloud Cover (%)": 46,
+    "Solar Radiation (W/m²)": 458.0
+  },
+  {
+    "Date": "2026-07-29",
+    "Time": "10:00",
+    "EXPORT_KW": 261.87,
+    "Temperature (°C)": 30.6,
+    "Cloud Cover (%)": 46,
+    "Solar Radiation (W/m²)": 731.0
+  },
+  {
+    "Date": "2026-07-29",
     "Time": "11:00",
-    "EXPORT_KW": 264.38,
-    "Temperature (°C)": 27.9,
-    "Cloud Cover (%)": 66,
-    "Solar Radiation (W/m²)": 626.0
+    "EXPORT_KW": 295.28,
+    "Temperature (°C)": 31.0,
+    "Cloud Cover (%)": 54,
+    "Solar Radiation (W/m²)": 864.0
   },
   {
-    "Date": "2026-07-28",
+    "Date": "2026-07-29",
     "Time": "12:00",
-    "EXPORT_KW": 259.67,
-    "Temperature (°C)": 26.8,
-    "Cloud Cover (%)": 99,
-    "Solar Radiation (W/m²)": 784.0
+    "EXPORT_KW": 320.47,
+    "Temperature (°C)": 31.0,
+    "Cloud Cover (%)": 22,
+    "Solar Radiation (W/m²)": 940.0
   },
   {
-    "Date": "2026-07-28",
+    "Date": "2026-07-29",
     "Time": "13:00",
-    "EXPORT_KW": 228.41,
-    "Temperature (°C)": 27.5,
-    "Cloud Cover (%)": 98,
-    "Solar Radiation (W/m²)": 624.0
+    "EXPORT_KW": 294.95,
+    "Temperature (°C)": 30.9,
+    "Cloud Cover (%)": 42,
+    "Solar Radiation (W/m²)": 909.0
   },
   {
-    "Date": "2026-07-28",
+    "Date": "2026-07-29",
     "Time": "14:00",
-    "EXPORT_KW": 185.5,
-    "Temperature (°C)": 27.1,
-    "Cloud Cover (%)": 100,
-    "Solar Radiation (W/m²)": 591.0
+    "EXPORT_KW": 225.26,
+    "Temperature (°C)": 30.5,
+    "Cloud Cover (%)": 71,
+    "Solar Radiation (W/m²)": 775.0
   },
   {
-    "Date": "2026-07-28",
+    "Date": "2026-07-29",
     "Time": "15:00",
-    "EXPORT_KW": 124.07,
-    "Temperature (°C)": 27.1,
-    "Cloud Cover (%)": 91,
-    "Solar Radiation (W/m²)": 469.0
+    "EXPORT_KW": 130.1,
+    "Temperature (°C)": 30.3,
+    "Cloud Cover (%)": 85,
+    "Solar Radiation (W/m²)": 602.0
   },
   {
-    "Date": "2026-07-28",
+    "Date": "2026-07-29",
     "Time": "16:00",
-    "EXPORT_KW": 62.39,
-    "Temperature (°C)": 27.3,
-    "Cloud Cover (%)": 98,
-    "Solar Radiation (W/m²)": 319.0
+    "EXPORT_KW": 64.72,
+    "Temperature (°C)": 30.0,
+    "Cloud Cover (%)": 46,
+    "Solar Radiation (W/m²)": 433.0
   },
   {
-    "Date": "2026-07-28",
+    "Date": "2026-07-29",
     "Time": "17:00",
-    "EXPORT_KW": 19.59,
-    "Temperature (°C)": 26.0,
-    "Cloud Cover (%)": 91,
-    "Solar Radiation (W/m²)": 155.0
+    "EXPORT_KW": 24.84,
+    "Temperature (°C)": 29.4,
+    "Cloud Cover (%)": 36,
+    "Solar Radiation (W/m²)": 255.0
   },
   {
-    "Date": "2026-07-28",
+    "Date": "2026-07-29",
     "Time": "18:00",
-    "EXPORT_KW": 0.82,
-    "Temperature (°C)": 25.6,
-    "Cloud Cover (%)": 81,
-    "Solar Radiation (W/m²)": 34.0
+    "EXPORT_KW": 4.85,
+    "Temperature (°C)": 28.9,
+    "Cloud Cover (%)": 78,
+    "Solar Radiation (W/m²)": 56.0
   },
   {
-    "Date": "2026-07-28",
+    "Date": "2026-07-29",
     "Time": "19:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.8,
+    "Temperature (°C)": 28.9,
+    "Cloud Cover (%)": 69,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-07-29",
+    "Time": "20:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 28.7,
     "Cloud Cover (%)": 84,
     "Solar Radiation (W/m²)": 0.0
   },
   {
-    "Date": "2026-07-28",
-    "Time": "20:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.7,
-    "Cloud Cover (%)": 39,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-28",
+    "Date": "2026-07-29",
     "Time": "21:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.6,
-    "Cloud Cover (%)": 65,
+    "Temperature (°C)": 28.6,
+    "Cloud Cover (%)": 87,
     "Solar Radiation (W/m²)": 0.0
   },
   {
-    "Date": "2026-07-28",
+    "Date": "2026-07-29",
     "Time": "22:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.0,
+    "Temperature (°C)": 28.5,
     "Cloud Cover (%)": 95,
     "Solar Radiation (W/m²)": 0.0
   },
   {
-    "Date": "2026-07-28",
+    "Date": "2026-07-29",
     "Time": "23:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.8,
+    "Temperature (°C)": 28.3,
     "Cloud Cover (%)": 96,
     "Solar Radiation (W/m²)": 0.0
   },
   {
-    "Date": "2026-07-29",
+    "Date": "2026-07-30",
     "Time": "00:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.9,
-    "Cloud Cover (%)": 88,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "01:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 26.0,
-    "Cloud Cover (%)": 64,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "02:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.9,
-    "Cloud Cover (%)": 91,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "03:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.7,
+    "Temperature (°C)": 28.1,
     "Cloud Cover (%)": 95,
     "Solar Radiation (W/m²)": 0.0
   },
   {
-    "Date": "2026-07-29",
+    "Date": "2026-07-30",
+    "Time": "01:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 28.0,
+    "Cloud Cover (%)": 96,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-07-30",
+    "Time": "02:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 27.7,
+    "Cloud Cover (%)": 84,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-07-30",
+    "Time": "03:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 26.4,
+    "Cloud Cover (%)": 82,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-07-30",
     "Time": "04:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.0,
-    "Cloud Cover (%)": 98,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "05:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.3,
-    "Cloud Cover (%)": 86,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "06:00",
-    "EXPORT_KW": 6.82,
-    "Temperature (°C)": 25.4,
-    "Cloud Cover (%)": 99,
-    "Solar Radiation (W/m²)": 7.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "07:00",
-    "EXPORT_KW": 39.4,
-    "Temperature (°C)": 26.2,
-    "Cloud Cover (%)": 88,
-    "Solar Radiation (W/m²)": 94.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "08:00",
-    "EXPORT_KW": 96.99,
-    "Temperature (°C)": 26.7,
-    "Cloud Cover (%)": 73,
-    "Solar Radiation (W/m²)": 226.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "09:00",
-    "EXPORT_KW": 200.08,
-    "Temperature (°C)": 27.6,
-    "Cloud Cover (%)": 90,
-    "Solar Radiation (W/m²)": 499.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "10:00",
-    "EXPORT_KW": 261.86,
-    "Temperature (°C)": 28.3,
-    "Cloud Cover (%)": 95,
-    "Solar Radiation (W/m²)": 593.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "11:00",
-    "EXPORT_KW": 266.72,
-    "Temperature (°C)": 27.1,
-    "Cloud Cover (%)": 94,
-    "Solar Radiation (W/m²)": 743.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "12:00",
-    "EXPORT_KW": 249.18,
-    "Temperature (°C)": 28.1,
-    "Cloud Cover (%)": 89,
-    "Solar Radiation (W/m²)": 613.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "13:00",
-    "EXPORT_KW": 229.25,
-    "Temperature (°C)": 27.3,
-    "Cloud Cover (%)": 86,
-    "Solar Radiation (W/m²)": 659.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "14:00",
-    "EXPORT_KW": 215.19,
-    "Temperature (°C)": 28.4,
-    "Cloud Cover (%)": 91,
-    "Solar Radiation (W/m²)": 693.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "15:00",
-    "EXPORT_KW": 153.23,
-    "Temperature (°C)": 27.4,
-    "Cloud Cover (%)": 98,
-    "Solar Radiation (W/m²)": 608.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "16:00",
-    "EXPORT_KW": 65.73,
-    "Temperature (°C)": 27.2,
-    "Cloud Cover (%)": 90,
-    "Solar Radiation (W/m²)": 312.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "17:00",
-    "EXPORT_KW": 26.87,
-    "Temperature (°C)": 27.5,
-    "Cloud Cover (%)": 86,
-    "Solar Radiation (W/m²)": 188.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "18:00",
-    "EXPORT_KW": 6.53,
-    "Temperature (°C)": 27.3,
-    "Cloud Cover (%)": 85,
-    "Solar Radiation (W/m²)": 49.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "19:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 27.2,
-    "Cloud Cover (%)": 97,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "20:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 27.3,
-    "Cloud Cover (%)": 100,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "21:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 27.1,
-    "Cloud Cover (%)": 98,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "22:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.6,
-    "Cloud Cover (%)": 98,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-29",
-    "Time": "23:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 26.0,
-    "Cloud Cover (%)": 99,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-30",
-    "Time": "00:00",
-    "EXPORT_KW": 0.0,
     "Temperature (°C)": 26.1,
-    "Cloud Cover (%)": 99,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-30",
-    "Time": "01:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.6,
-    "Cloud Cover (%)": 95,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-30",
-    "Time": "02:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.5,
-    "Cloud Cover (%)": 95,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-30",
-    "Time": "03:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.0,
     "Cloud Cover (%)": 66,
     "Solar Radiation (W/m²)": 0.0
   },
   {
     "Date": "2026-07-30",
-    "Time": "04:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.3,
-    "Cloud Cover (%)": 95,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-07-30",
     "Time": "05:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.6,
-    "Cloud Cover (%)": 47,
+    "Temperature (°C)": 26.4,
+    "Cloud Cover (%)": 86,
     "Solar Radiation (W/m²)": 0.0
   },
   {
     "Date": "2026-07-30",
     "Time": "06:00",
-    "EXPORT_KW": 10.78,
-    "Temperature (°C)": 26.1,
-    "Cloud Cover (%)": 53,
-    "Solar Radiation (W/m²)": 4.0
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 25.2,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 5.0
   },
   {
     "Date": "2026-07-30",
     "Time": "07:00",
-    "EXPORT_KW": 42.36,
-    "Temperature (°C)": 26.8,
-    "Cloud Cover (%)": 68,
-    "Solar Radiation (W/m²)": 114.0
+    "EXPORT_KW": 26.36,
+    "Temperature (°C)": 26.2,
+    "Cloud Cover (%)": 74,
+    "Solar Radiation (W/m²)": 79.0
   },
   {
     "Date": "2026-07-30",
     "Time": "08:00",
-    "EXPORT_KW": 99.72,
-    "Temperature (°C)": 27.4,
-    "Cloud Cover (%)": 77,
-    "Solar Radiation (W/m²)": 278.0
+    "EXPORT_KW": 73.73,
+    "Temperature (°C)": 26.7,
+    "Cloud Cover (%)": 98,
+    "Solar Radiation (W/m²)": 314.0
   },
   {
     "Date": "2026-07-30",
     "Time": "09:00",
-    "EXPORT_KW": 183.04,
-    "Temperature (°C)": 27.7,
-    "Cloud Cover (%)": 72,
-    "Solar Radiation (W/m²)": 445.0
+    "EXPORT_KW": 125.27,
+    "Temperature (°C)": 26.0,
+    "Cloud Cover (%)": 94,
+    "Solar Radiation (W/m²)": 461.0
   },
   {
     "Date": "2026-07-30",
     "Time": "10:00",
-    "EXPORT_KW": 244.93,
-    "Temperature (°C)": 27.9,
-    "Cloud Cover (%)": 60,
-    "Solar Radiation (W/m²)": 572.0
+    "EXPORT_KW": 226.0,
+    "Temperature (°C)": 28.2,
+    "Cloud Cover (%)": 94,
+    "Solar Radiation (W/m²)": 662.0
   },
   {
     "Date": "2026-07-30",
     "Time": "11:00",
-    "EXPORT_KW": 264.24,
-    "Temperature (°C)": 28.0,
-    "Cloud Cover (%)": 53,
-    "Solar Radiation (W/m²)": 657.0
+    "EXPORT_KW": 259.23,
+    "Temperature (°C)": 28.6,
+    "Cloud Cover (%)": 95,
+    "Solar Radiation (W/m²)": 766.0
   },
   {
     "Date": "2026-07-30",
     "Time": "12:00",
-    "EXPORT_KW": 267.15,
-    "Temperature (°C)": 28.2,
-    "Cloud Cover (%)": 55,
-    "Solar Radiation (W/m²)": 694.0
+    "EXPORT_KW": 261.47,
+    "Temperature (°C)": 29.2,
+    "Cloud Cover (%)": 78,
+    "Solar Radiation (W/m²)": 688.0
   },
   {
     "Date": "2026-07-30",
     "Time": "13:00",
-    "EXPORT_KW": 246.26,
-    "Temperature (°C)": 28.2,
-    "Cloud Cover (%)": 62,
-    "Solar Radiation (W/m²)": 679.0
+    "EXPORT_KW": 281.33,
+    "Temperature (°C)": 29.4,
+    "Cloud Cover (%)": 81,
+    "Solar Radiation (W/m²)": 900.0
   },
   {
     "Date": "2026-07-30",
     "Time": "14:00",
-    "EXPORT_KW": 202.59,
-    "Temperature (°C)": 28.2,
-    "Cloud Cover (%)": 68,
-    "Solar Radiation (W/m²)": 616.0
+    "EXPORT_KW": 263.2,
+    "Temperature (°C)": 29.4,
+    "Cloud Cover (%)": 24,
+    "Solar Radiation (W/m²)": 749.0
   },
   {
     "Date": "2026-07-30",
     "Time": "15:00",
-    "EXPORT_KW": 135.48,
-    "Temperature (°C)": 28.0,
-    "Cloud Cover (%)": 73,
-    "Solar Radiation (W/m²)": 512.0
+    "EXPORT_KW": 170.68,
+    "Temperature (°C)": 28.5,
+    "Cloud Cover (%)": 87,
+    "Solar Radiation (W/m²)": 668.0
   },
   {
     "Date": "2026-07-30",
     "Time": "16:00",
-    "EXPORT_KW": 65.97,
-    "Temperature (°C)": 27.8,
-    "Cloud Cover (%)": 77,
-    "Solar Radiation (W/m²)": 369.0
+    "EXPORT_KW": 71.05,
+    "Temperature (°C)": 27.4,
+    "Cloud Cover (%)": 76,
+    "Solar Radiation (W/m²)": 404.0
   },
   {
     "Date": "2026-07-30",
     "Time": "17:00",
-    "EXPORT_KW": 26.37,
-    "Temperature (°C)": 27.4,
-    "Cloud Cover (%)": 79,
-    "Solar Radiation (W/m²)": 205.0
+    "EXPORT_KW": 23.91,
+    "Temperature (°C)": 27.6,
+    "Cloud Cover (%)": 69,
+    "Solar Radiation (W/m²)": 187.0
   },
   {
     "Date": "2026-07-30",
     "Time": "18:00",
-    "EXPORT_KW": 5.14,
-    "Temperature (°C)": 27.1,
-    "Cloud Cover (%)": 77,
-    "Solar Radiation (W/m²)": 45.0
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 26.5,
+    "Cloud Cover (%)": 95,
+    "Solar Radiation (W/m²)": 59.0
   },
   {
     "Date": "2026-07-30",
     "Time": "19:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 26.7,
-    "Cloud Cover (%)": 73,
+    "Temperature (°C)": 26.5,
+    "Cloud Cover (%)": 57,
     "Solar Radiation (W/m²)": 0.0
   },
   {
     "Date": "2026-07-30",
     "Time": "20:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 26.3,
-    "Cloud Cover (%)": 73,
+    "Temperature (°C)": 26.2,
+    "Cloud Cover (%)": 88,
     "Solar Radiation (W/m²)": 0.0
   },
   {
     "Date": "2026-07-30",
     "Time": "21:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 26.0,
-    "Cloud Cover (%)": 80,
+    "Temperature (°C)": 26.1,
+    "Cloud Cover (%)": 16,
     "Solar Radiation (W/m²)": 0.0
   },
   {
     "Date": "2026-07-30",
     "Time": "22:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.7,
-    "Cloud Cover (%)": 89,
+    "Temperature (°C)": 26.0,
+    "Cloud Cover (%)": 62,
     "Solar Radiation (W/m²)": 0.0
   },
   {
     "Date": "2026-07-30",
     "Time": "23:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.5,
-    "Cloud Cover (%)": 97,
+    "Temperature (°C)": 26.3,
+    "Cloud Cover (%)": 15,
     "Solar Radiation (W/m²)": 0.0
   },
   {
     "Date": "2026-07-31",
     "Time": "00:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.4,
-    "Cloud Cover (%)": 100,
+    "Temperature (°C)": 25.1,
+    "Cloud Cover (%)": 81,
     "Solar Radiation (W/m²)": 0.0
   },
   {
     "Date": "2026-07-31",
     "Time": "01:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.4,
-    "Cloud Cover (%)": 100,
+    "Temperature (°C)": 25.7,
+    "Cloud Cover (%)": 45,
     "Solar Radiation (W/m²)": 0.0
   },
   {
     "Date": "2026-07-31",
     "Time": "02:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.4,
-    "Cloud Cover (%)": 100,
+    "Temperature (°C)": 25.2,
+    "Cloud Cover (%)": 73,
     "Solar Radiation (W/m²)": 0.0
   },
   {
     "Date": "2026-07-31",
     "Time": "03:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.4,
-    "Cloud Cover (%)": 94,
+    "Temperature (°C)": 25.3,
+    "Cloud Cover (%)": 90,
     "Solar Radiation (W/m²)": 0.0
   },
   {
     "Date": "2026-07-31",
     "Time": "04:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.3,
-    "Cloud Cover (%)": 85,
+    "Temperature (°C)": 24.8,
+    "Cloud Cover (%)": 98,
     "Solar Radiation (W/m²)": 0.0
   },
   {
     "Date": "2026-07-31",
     "Time": "05:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.4,
-    "Cloud Cover (%)": 80,
+    "Temperature (°C)": 24.8,
+    "Cloud Cover (%)": 99,
     "Solar Radiation (W/m²)": 0.0
   },
   {
     "Date": "2026-07-31",
     "Time": "06:00",
-    "EXPORT_KW": 9.32,
-    "Temperature (°C)": 25.7,
-    "Cloud Cover (%)": 83,
+    "EXPORT_KW": 4.67,
+    "Temperature (°C)": 25.1,
+    "Cloud Cover (%)": 93,
     "Solar Radiation (W/m²)": 3.0
   },
   {
     "Date": "2026-07-31",
     "Time": "07:00",
-    "EXPORT_KW": 39.84,
-    "Temperature (°C)": 26.3,
-    "Cloud Cover (%)": 89,
-    "Solar Radiation (W/m²)": 88.0
+    "EXPORT_KW": 33.99,
+    "Temperature (°C)": 25.5,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 75.0
   },
   {
     "Date": "2026-07-31",
     "Time": "08:00",
-    "EXPORT_KW": 93.69,
-    "Temperature (°C)": 26.8,
-    "Cloud Cover (%)": 94,
-    "Solar Radiation (W/m²)": 227.0
+    "EXPORT_KW": 87.85,
+    "Temperature (°C)": 26.3,
+    "Cloud Cover (%)": 92,
+    "Solar Radiation (W/m²)": 160.0
   },
   {
     "Date": "2026-07-31",
     "Time": "09:00",
-    "EXPORT_KW": 188.05,
-    "Temperature (°C)": 27.4,
-    "Cloud Cover (%)": 95,
-    "Solar Radiation (W/m²)": 436.0
+    "EXPORT_KW": 183.4,
+    "Temperature (°C)": 27.1,
+    "Cloud Cover (%)": 97,
+    "Solar Radiation (W/m²)": 390.0
   },
   {
     "Date": "2026-07-31",
     "Time": "10:00",
-    "EXPORT_KW": 256.59,
-    "Temperature (°C)": 28.0,
-    "Cloud Cover (%)": 94,
+    "EXPORT_KW": 252.33,
+    "Temperature (°C)": 26.8,
+    "Cloud Cover (%)": 99,
     "Solar Radiation (W/m²)": 571.0
   },
   {
     "Date": "2026-07-31",
     "Time": "11:00",
-    "EXPORT_KW": 267.82,
-    "Temperature (°C)": 28.2,
-    "Cloud Cover (%)": 94,
-    "Solar Radiation (W/m²)": 649.0
+    "EXPORT_KW": 262.69,
+    "Temperature (°C)": 27.5,
+    "Cloud Cover (%)": 98,
+    "Solar Radiation (W/m²)": 591.0
   },
   {
     "Date": "2026-07-31",
     "Time": "12:00",
-    "EXPORT_KW": 251.79,
-    "Temperature (°C)": 27.7,
-    "Cloud Cover (%)": 95,
-    "Solar Radiation (W/m²)": 662.0
+    "EXPORT_KW": 251.95,
+    "Temperature (°C)": 26.7,
+    "Cloud Cover (%)": 98,
+    "Solar Radiation (W/m²)": 702.0
   },
   {
     "Date": "2026-07-31",
     "Time": "13:00",
-    "EXPORT_KW": 217.26,
+    "EXPORT_KW": 173.38,
     "Temperature (°C)": 26.8,
-    "Cloud Cover (%)": 97,
-    "Solar Radiation (W/m²)": 626.0
+    "Cloud Cover (%)": 99,
+    "Solar Radiation (W/m²)": 319.0
   },
   {
     "Date": "2026-07-31",
     "Time": "14:00",
-    "EXPORT_KW": 164.23,
-    "Temperature (°C)": 26.2,
-    "Cloud Cover (%)": 98,
-    "Solar Radiation (W/m²)": 542.0
+    "EXPORT_KW": 134.12,
+    "Temperature (°C)": 25.6,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 443.0
   },
   {
     "Date": "2026-07-31",
     "Time": "15:00",
-    "EXPORT_KW": 95.9,
-    "Temperature (°C)": 26.3,
+    "EXPORT_KW": 51.3,
+    "Temperature (°C)": 26.0,
     "Cloud Cover (%)": 99,
-    "Solar Radiation (W/m²)": 403.0
+    "Solar Radiation (W/m²)": 137.0
   },
   {
     "Date": "2026-07-31",
     "Time": "16:00",
-    "EXPORT_KW": 49.66,
-    "Temperature (°C)": 26.6,
-    "Cloud Cover (%)": 99,
-    "Solar Radiation (W/m²)": 290.0
+    "EXPORT_KW": 22.9,
+    "Temperature (°C)": 24.9,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 171.0
   },
   {
     "Date": "2026-07-31",
     "Time": "17:00",
-    "EXPORT_KW": 23.69,
-    "Temperature (°C)": 26.7,
-    "Cloud Cover (%)": 99,
-    "Solar Radiation (W/m²)": 168.0
+    "EXPORT_KW": 13.53,
+    "Temperature (°C)": 25.8,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 65.0
   },
   {
     "Date": "2026-07-31",
     "Time": "18:00",
-    "EXPORT_KW": 5.91,
-    "Temperature (°C)": 26.5,
-    "Cloud Cover (%)": 99,
-    "Solar Radiation (W/m²)": 42.0
+    "EXPORT_KW": 8.46,
+    "Temperature (°C)": 26.0,
+    "Cloud Cover (%)": 98,
+    "Solar Radiation (W/m²)": 32.0
   },
   {
     "Date": "2026-07-31",
     "Time": "19:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 26.1,
+    "Temperature (°C)": 24.9,
     "Cloud Cover (%)": 100,
     "Solar Radiation (W/m²)": 0.0
   },
@@ -1123,15 +547,15 @@
     "Date": "2026-07-31",
     "Time": "20:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.7,
-    "Cloud Cover (%)": 100,
+    "Temperature (°C)": 25.5,
+    "Cloud Cover (%)": 99,
     "Solar Radiation (W/m²)": 0.0
   },
   {
     "Date": "2026-07-31",
     "Time": "21:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.5,
+    "Temperature (°C)": 24.9,
     "Cloud Cover (%)": 100,
     "Solar Radiation (W/m²)": 0.0
   },
@@ -1139,21 +563,13 @@
     "Date": "2026-07-31",
     "Time": "22:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.4,
-    "Cloud Cover (%)": 100,
+    "Temperature (°C)": 25.2,
+    "Cloud Cover (%)": 99,
     "Solar Radiation (W/m²)": 0.0
   },
   {
     "Date": "2026-07-31",
     "Time": "23:00",
-    "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.3,
-    "Cloud Cover (%)": 100,
-    "Solar Radiation (W/m²)": 0.0
-  },
-  {
-    "Date": "2026-08-01",
-    "Time": "00:00",
     "EXPORT_KW": 0.0,
     "Temperature (°C)": 25.2,
     "Cloud Cover (%)": 100,
@@ -1161,9 +577,17 @@
   },
   {
     "Date": "2026-08-01",
+    "Time": "00:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 24.6,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-01",
     "Time": "01:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.1,
+    "Temperature (°C)": 25.0,
     "Cloud Cover (%)": 100,
     "Solar Radiation (W/m²)": 0.0
   },
@@ -1171,7 +595,7 @@
     "Date": "2026-08-01",
     "Time": "02:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.1,
+    "Temperature (°C)": 25.2,
     "Cloud Cover (%)": 100,
     "Solar Radiation (W/m²)": 0.0
   },
@@ -1187,7 +611,7 @@
     "Date": "2026-08-01",
     "Time": "04:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.3,
+    "Temperature (°C)": 24.9,
     "Cloud Cover (%)": 100,
     "Solar Radiation (W/m²)": 0.0
   },
@@ -1195,119 +619,119 @@
     "Date": "2026-08-01",
     "Time": "05:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.6,
-    "Cloud Cover (%)": 99,
+    "Temperature (°C)": 24.9,
+    "Cloud Cover (%)": 100,
     "Solar Radiation (W/m²)": 0.0
   },
   {
     "Date": "2026-08-01",
     "Time": "06:00",
-    "EXPORT_KW": 12.68,
-    "Temperature (°C)": 26.0,
-    "Cloud Cover (%)": 97,
+    "EXPORT_KW": 8.09,
+    "Temperature (°C)": 25.0,
+    "Cloud Cover (%)": 100,
     "Solar Radiation (W/m²)": 2.0
   },
   {
     "Date": "2026-08-01",
     "Time": "07:00",
-    "EXPORT_KW": 42.23,
-    "Temperature (°C)": 26.5,
-    "Cloud Cover (%)": 95,
-    "Solar Radiation (W/m²)": 60.0
+    "EXPORT_KW": 34.02,
+    "Temperature (°C)": 24.9,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 29.0
   },
   {
     "Date": "2026-08-01",
     "Time": "08:00",
-    "EXPORT_KW": 97.43,
-    "Temperature (°C)": 26.8,
-    "Cloud Cover (%)": 94,
-    "Solar Radiation (W/m²)": 156.0
+    "EXPORT_KW": 101.74,
+    "Temperature (°C)": 25.7,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 102.0
   },
   {
     "Date": "2026-08-01",
     "Time": "09:00",
-    "EXPORT_KW": 174.33,
-    "Temperature (°C)": 26.7,
-    "Cloud Cover (%)": 95,
-    "Solar Radiation (W/m²)": 297.0
+    "EXPORT_KW": 168.7,
+    "Temperature (°C)": 25.5,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 80.0
   },
   {
     "Date": "2026-08-01",
     "Time": "10:00",
-    "EXPORT_KW": 225.47,
-    "Temperature (°C)": 26.3,
-    "Cloud Cover (%)": 98,
-    "Solar Radiation (W/m²)": 394.0
+    "EXPORT_KW": 219.85,
+    "Temperature (°C)": 25.4,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 109.0
   },
   {
     "Date": "2026-08-01",
     "Time": "11:00",
-    "EXPORT_KW": 231.92,
-    "Temperature (°C)": 26.1,
+    "EXPORT_KW": 241.0,
+    "Temperature (°C)": 25.2,
     "Cloud Cover (%)": 100,
-    "Solar Radiation (W/m²)": 458.0
+    "Solar Radiation (W/m²)": 125.0
   },
   {
     "Date": "2026-08-01",
     "Time": "12:00",
-    "EXPORT_KW": 211.5,
-    "Temperature (°C)": 26.7,
+    "EXPORT_KW": 228.95,
+    "Temperature (°C)": 25.4,
     "Cloud Cover (%)": 100,
-    "Solar Radiation (W/m²)": 384.0
+    "Solar Radiation (W/m²)": 130.0
   },
   {
     "Date": "2026-08-01",
     "Time": "13:00",
-    "EXPORT_KW": 185.67,
-    "Temperature (°C)": 26.6,
+    "EXPORT_KW": 190.58,
+    "Temperature (°C)": 25.5,
     "Cloud Cover (%)": 100,
-    "Solar Radiation (W/m²)": 362.0
+    "Solar Radiation (W/m²)": 129.0
   },
   {
     "Date": "2026-08-01",
     "Time": "14:00",
-    "EXPORT_KW": 143.08,
-    "Temperature (°C)": 26.5,
+    "EXPORT_KW": 160.26,
+    "Temperature (°C)": 25.8,
     "Cloud Cover (%)": 100,
-    "Solar Radiation (W/m²)": 313.0
+    "Solar Radiation (W/m²)": 139.0
   },
   {
     "Date": "2026-08-01",
     "Time": "15:00",
-    "EXPORT_KW": 85.44,
-    "Temperature (°C)": 26.3,
+    "EXPORT_KW": 108.99,
+    "Temperature (°C)": 25.7,
     "Cloud Cover (%)": 100,
-    "Solar Radiation (W/m²)": 244.0
+    "Solar Radiation (W/m²)": 118.0
   },
   {
     "Date": "2026-08-01",
     "Time": "16:00",
-    "EXPORT_KW": 38.44,
-    "Temperature (°C)": 26.2,
+    "EXPORT_KW": 49.01,
+    "Temperature (°C)": 25.6,
     "Cloud Cover (%)": 100,
-    "Solar Radiation (W/m²)": 165.0
+    "Solar Radiation (W/m²)": 95.0
   },
   {
     "Date": "2026-08-01",
     "Time": "17:00",
-    "EXPORT_KW": 20.08,
-    "Temperature (°C)": 26.1,
+    "EXPORT_KW": 26.24,
+    "Temperature (°C)": 25.6,
     "Cloud Cover (%)": 100,
-    "Solar Radiation (W/m²)": 85.0
+    "Solar Radiation (W/m²)": 72.0
   },
   {
     "Date": "2026-08-01",
     "Time": "18:00",
-    "EXPORT_KW": 7.1,
-    "Temperature (°C)": 26.0,
+    "EXPORT_KW": 6.83,
+    "Temperature (°C)": 24.4,
     "Cloud Cover (%)": 100,
-    "Solar Radiation (W/m²)": 17.0
+    "Solar Radiation (W/m²)": 15.0
   },
   {
     "Date": "2026-08-01",
     "Time": "19:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.9,
+    "Temperature (°C)": 25.0,
     "Cloud Cover (%)": 100,
     "Solar Radiation (W/m²)": 0.0
   },
@@ -1315,7 +739,7 @@
     "Date": "2026-08-01",
     "Time": "20:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.9,
+    "Temperature (°C)": 24.8,
     "Cloud Cover (%)": 100,
     "Solar Radiation (W/m²)": 0.0
   },
@@ -1323,7 +747,7 @@
     "Date": "2026-08-01",
     "Time": "21:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.8,
+    "Temperature (°C)": 24.5,
     "Cloud Cover (%)": 100,
     "Solar Radiation (W/m²)": 0.0
   },
@@ -1331,7 +755,7 @@
     "Date": "2026-08-01",
     "Time": "22:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.8,
+    "Temperature (°C)": 25.1,
     "Cloud Cover (%)": 100,
     "Solar Radiation (W/m²)": 0.0
   },
@@ -1339,8 +763,584 @@
     "Date": "2026-08-01",
     "Time": "23:00",
     "EXPORT_KW": 0.0,
-    "Temperature (°C)": 25.7,
+    "Temperature (°C)": 25.1,
     "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "00:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 24.3,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "01:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 24.7,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "02:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 25.5,
+    "Cloud Cover (%)": 99,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "03:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 25.0,
+    "Cloud Cover (%)": 98,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "04:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 24.2,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "05:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 24.6,
+    "Cloud Cover (%)": 95,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "06:00",
+    "EXPORT_KW": 9.02,
+    "Temperature (°C)": 25.0,
+    "Cloud Cover (%)": 96,
+    "Solar Radiation (W/m²)": 2.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "07:00",
+    "EXPORT_KW": 41.44,
+    "Temperature (°C)": 25.7,
+    "Cloud Cover (%)": 97,
+    "Solar Radiation (W/m²)": 58.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "08:00",
+    "EXPORT_KW": 126.38,
+    "Temperature (°C)": 26.2,
+    "Cloud Cover (%)": 98,
+    "Solar Radiation (W/m²)": 156.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "09:00",
+    "EXPORT_KW": 213.89,
+    "Temperature (°C)": 26.3,
+    "Cloud Cover (%)": 99,
+    "Solar Radiation (W/m²)": 340.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "10:00",
+    "EXPORT_KW": 268.1,
+    "Temperature (°C)": 26.2,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 438.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "11:00",
+    "EXPORT_KW": 265.37,
+    "Temperature (°C)": 26.1,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 474.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "12:00",
+    "EXPORT_KW": 227.68,
+    "Temperature (°C)": 26.3,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 442.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "13:00",
+    "EXPORT_KW": 197.79,
+    "Temperature (°C)": 26.6,
+    "Cloud Cover (%)": 99,
+    "Solar Radiation (W/m²)": 383.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "14:00",
+    "EXPORT_KW": 149.11,
+    "Temperature (°C)": 26.8,
+    "Cloud Cover (%)": 98,
+    "Solar Radiation (W/m²)": 297.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "15:00",
+    "EXPORT_KW": 78.88,
+    "Temperature (°C)": 26.9,
+    "Cloud Cover (%)": 98,
+    "Solar Radiation (W/m²)": 160.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "16:00",
+    "EXPORT_KW": 34.1,
+    "Temperature (°C)": 26.9,
+    "Cloud Cover (%)": 99,
+    "Solar Radiation (W/m²)": 119.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "17:00",
+    "EXPORT_KW": 20.54,
+    "Temperature (°C)": 26.8,
+    "Cloud Cover (%)": 99,
+    "Solar Radiation (W/m²)": 79.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "18:00",
+    "EXPORT_KW": 8.78,
+    "Temperature (°C)": 26.6,
+    "Cloud Cover (%)": 99,
+    "Solar Radiation (W/m²)": 30.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "19:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 26.3,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "20:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 26.2,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "21:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 26.3,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "22:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 26.6,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-02",
+    "Time": "23:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 26.7,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "00:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 26.6,
+    "Cloud Cover (%)": 99,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "01:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 26.4,
+    "Cloud Cover (%)": 99,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "02:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 26.2,
+    "Cloud Cover (%)": 98,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "03:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 25.8,
+    "Cloud Cover (%)": 98,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "04:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 25.3,
+    "Cloud Cover (%)": 97,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "05:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 25.2,
+    "Cloud Cover (%)": 97,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "06:00",
+    "EXPORT_KW": 5.26,
+    "Temperature (°C)": 25.7,
+    "Cloud Cover (%)": 97,
+    "Solar Radiation (W/m²)": 4.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "07:00",
+    "EXPORT_KW": 39.08,
+    "Temperature (°C)": 26.6,
+    "Cloud Cover (%)": 98,
+    "Solar Radiation (W/m²)": 106.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "08:00",
+    "EXPORT_KW": 103.76,
+    "Temperature (°C)": 27.3,
+    "Cloud Cover (%)": 98,
+    "Solar Radiation (W/m²)": 256.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "09:00",
+    "EXPORT_KW": 194.35,
+    "Temperature (°C)": 27.9,
+    "Cloud Cover (%)": 97,
+    "Solar Radiation (W/m²)": 391.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "10:00",
+    "EXPORT_KW": 255.17,
+    "Temperature (°C)": 28.4,
+    "Cloud Cover (%)": 95,
+    "Solar Radiation (W/m²)": 508.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "11:00",
+    "EXPORT_KW": 267.79,
+    "Temperature (°C)": 28.8,
+    "Cloud Cover (%)": 94,
+    "Solar Radiation (W/m²)": 598.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "12:00",
+    "EXPORT_KW": 265.95,
+    "Temperature (°C)": 28.8,
+    "Cloud Cover (%)": 95,
+    "Solar Radiation (W/m²)": 710.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "13:00",
+    "EXPORT_KW": 243.13,
+    "Temperature (°C)": 28.7,
+    "Cloud Cover (%)": 97,
+    "Solar Radiation (W/m²)": 675.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "14:00",
+    "EXPORT_KW": 192.01,
+    "Temperature (°C)": 28.5,
+    "Cloud Cover (%)": 98,
+    "Solar Radiation (W/m²)": 568.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "15:00",
+    "EXPORT_KW": 111.66,
+    "Temperature (°C)": 28.3,
+    "Cloud Cover (%)": 99,
+    "Solar Radiation (W/m²)": 391.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "16:00",
+    "EXPORT_KW": 50.09,
+    "Temperature (°C)": 28.0,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 260.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "17:00",
+    "EXPORT_KW": 18.52,
+    "Temperature (°C)": 27.6,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 135.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "18:00",
+    "EXPORT_KW": 1.4,
+    "Temperature (°C)": 27.0,
+    "Cloud Cover (%)": 99,
+    "Solar Radiation (W/m²)": 27.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "19:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 26.2,
+    "Cloud Cover (%)": 99,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "20:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 25.5,
+    "Cloud Cover (%)": 98,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "21:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 25.2,
+    "Cloud Cover (%)": 99,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "22:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 25.1,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-03",
+    "Time": "23:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 25.0,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "00:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 24.9,
+    "Cloud Cover (%)": 100,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "01:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 25.0,
+    "Cloud Cover (%)": 99,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "02:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 25.0,
+    "Cloud Cover (%)": 97,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "03:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 25.1,
+    "Cloud Cover (%)": 91,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "04:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 25.1,
+    "Cloud Cover (%)": 84,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "05:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 25.3,
+    "Cloud Cover (%)": 80,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "06:00",
+    "EXPORT_KW": 11.68,
+    "Temperature (°C)": 25.8,
+    "Cloud Cover (%)": 82,
+    "Solar Radiation (W/m²)": 4.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "07:00",
+    "EXPORT_KW": 42.97,
+    "Temperature (°C)": 26.3,
+    "Cloud Cover (%)": 87,
+    "Solar Radiation (W/m²)": 104.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "08:00",
+    "EXPORT_KW": 107.79,
+    "Temperature (°C)": 26.8,
+    "Cloud Cover (%)": 90,
+    "Solar Radiation (W/m²)": 258.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "09:00",
+    "EXPORT_KW": 200.37,
+    "Temperature (°C)": 27.3,
+    "Cloud Cover (%)": 87,
+    "Solar Radiation (W/m²)": 432.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "10:00",
+    "EXPORT_KW": 261.14,
+    "Temperature (°C)": 27.7,
+    "Cloud Cover (%)": 81,
+    "Solar Radiation (W/m²)": 562.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "11:00",
+    "EXPORT_KW": 271.11,
+    "Temperature (°C)": 27.9,
+    "Cloud Cover (%)": 76,
+    "Solar Radiation (W/m²)": 647.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "12:00",
+    "EXPORT_KW": 278.83,
+    "Temperature (°C)": 28.8,
+    "Cloud Cover (%)": 96,
+    "Solar Radiation (W/m²)": 788.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "13:00",
+    "EXPORT_KW": 263.83,
+    "Temperature (°C)": 28.8,
+    "Cloud Cover (%)": 97,
+    "Solar Radiation (W/m²)": 769.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "14:00",
+    "EXPORT_KW": 221.5,
+    "Temperature (°C)": 28.6,
+    "Cloud Cover (%)": 97,
+    "Solar Radiation (W/m²)": 695.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "15:00",
+    "EXPORT_KW": 153.18,
+    "Temperature (°C)": 28.4,
+    "Cloud Cover (%)": 97,
+    "Solar Radiation (W/m²)": 573.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "16:00",
+    "EXPORT_KW": 78.44,
+    "Temperature (°C)": 28.2,
+    "Cloud Cover (%)": 98,
+    "Solar Radiation (W/m²)": 413.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "17:00",
+    "EXPORT_KW": 28.7,
+    "Temperature (°C)": 28.0,
+    "Cloud Cover (%)": 98,
+    "Solar Radiation (W/m²)": 231.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "18:00",
+    "EXPORT_KW": 4.7,
+    "Temperature (°C)": 27.8,
+    "Cloud Cover (%)": 98,
+    "Solar Radiation (W/m²)": 48.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "19:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 27.7,
+    "Cloud Cover (%)": 99,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "20:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 27.5,
+    "Cloud Cover (%)": 99,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "21:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 27.4,
+    "Cloud Cover (%)": 99,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "22:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 27.2,
+    "Cloud Cover (%)": 99,
+    "Solar Radiation (W/m²)": 0.0
+  },
+  {
+    "Date": "2026-08-04",
+    "Time": "23:00",
+    "EXPORT_KW": 0.0,
+    "Temperature (°C)": 27.0,
+    "Cloud Cover (%)": 99,
     "Solar Radiation (W/m²)": 0.0
   }
 ]

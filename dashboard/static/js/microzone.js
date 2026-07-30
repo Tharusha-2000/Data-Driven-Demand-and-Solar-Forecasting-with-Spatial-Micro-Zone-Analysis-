@@ -22,6 +22,38 @@ const tierColors = {
     Low:    '#10b981',
 };
 
+// Every kW figure Module C exports is a MEAN PER REPORTING HOUSEHOLD (see
+// pipeline.py's build_zone_frame) — not the zone's total load. The dashboard shows
+// that per-household number as the primary figure but always surfaces the
+// estimated zone total (per-household kW × households in the zone) beside it, so
+// a small zone with a high per-household average isn't mistaken for the zone
+// drawing the most total power.
+function zoneTotalKw(perHouseholdKw, households) {
+    if (!households) return null;
+    return Math.round(perHouseholdKw * households * 10) / 10;
+}
+
+function zoneTotalNote(perHouseholdKw, households) {
+    const total = zoneTotalKw(perHouseholdKw, households);
+    return total === null ? '' : ` <span style="color:var(--text-muted); font-size:0.82em;">(~${total.toLocaleString()} kW zone total)</span>`;
+}
+
+function zoneTotalCell(perHouseholdKw, households) {
+    const total = zoneTotalKw(perHouseholdKw, households);
+    return total === null ? '—' : `${total.toLocaleString()} kW`;
+}
+
+// forecast.yhat is 24 hourly per-household kW values for the single forecasted next
+// day — each hour's kW held for 1h = that hour's kWh, so summing them (then scaling
+// by households) gives the zone's estimated whole-day energy, unlike zoneTotalKw()
+// above which only scales the single peak hour.
+function zoneDailyEnergyCell(forecastYhat, households) {
+    if (!households || !Array.isArray(forecastYhat)) return '—';
+    const perHouseholdKwh = forecastYhat.reduce((sum, v) => sum + v, 0);
+    const total = Math.round(perHouseholdKwh * households * 10) / 10;
+    return `${total.toLocaleString()} kWh`;
+}
+
 
 // ── Fetch + orchestrate ─────────────────────────────────────
 async function fetchMicrozoneOverview() {
@@ -131,7 +163,7 @@ function renderZoneMap(mapState, containerId, center, zones) {
             <strong>${zone.name}</strong><br>
             ${surgeLine}
             Risk tier: <strong>${zone.risk.risk_tier}</strong><br>
-            Forecast peak: ${zone.forecast.peak_kw} kW at ${String(zone.forecast.peak_hour).padStart(2, '0')}:00<br>
+            Forecast peak: ${zone.forecast.peak_kw} kW/home${zoneTotalNote(zone.forecast.peak_kw, zone.households)} at ${String(zone.forecast.peak_hour).padStart(2, '0')}:00<br>
             Surge warning: ${zone.warning.WARNING} &nbsp;|&nbsp; Trend: ${zone.trend.trend}<br>
             Reliability: ${zone.reliability} (${zone.nrmse_pct}% nRMSE)<br>
             ${zone.households} households &middot; ${zone.area_km2} km²
@@ -175,7 +207,9 @@ function renderMicrozonePriorityTable(merged) {
             <td style="color:${warnColor};">${zone.warning.WARNING}</td>
             <td>${trendIcon} ${zone.trend.trend}</td>
             <td>${zone.reliability} <span style="color:var(--text-muted);">(${zone.nrmse_pct}%)</span></td>
-            <td>${zone.forecast.peak_kw} kW <span style="color:var(--text-muted);">@ ${String(zone.forecast.peak_hour).padStart(2, '0')}:00</span></td>
+            <td>${zone.forecast.peak_kw} kW/home </td>
+            <td>${zoneTotalCell(zone.forecast.peak_kw, zone.households)}</td>
+            <td>${zoneDailyEnergyCell(zone.forecast.yhat, zone.households)}</td>
             <td style="font-family:'Inter',sans-serif; font-size:0.82rem; color:var(--text-secondary);">${zone.action}</td>
         `;
         tbody.appendChild(tr);
@@ -275,7 +309,7 @@ function renderScenarioSummary(scenarioZones) {
                     <div style="font-size:0.78rem; color:var(--text-secondary); margin-bottom:0.35rem;">
                         ${s.name} ${s.surge_pct ? `<strong>+${s.surge_pct}%</strong>` : '<span style="color:var(--text-muted);">(unchanged)</span>'}
                     </div>
-                    <div style="font-family:'JetBrains Mono',monospace; font-size:1rem; color:${color};">${s.risk_adj_peak_kw} kW</div>
+                    <div style="font-family:'JetBrains Mono',monospace; font-size:1rem; color:${color};">${s.risk_adj_peak_kw} kW/home${zoneTotalNote(s.risk_adj_peak_kw, base.households)}</div>
                     <div style="font-size:0.78rem; margin-top:0.3rem;">
                         <span class="tier-pill tier-${s.risk_tier.toLowerCase()}">${s.risk_tier}</span>
                         ${changed ? ` <span style="color:var(--accent-amber);">⚠️ was ${baseTier}</span>` : ''}
@@ -305,7 +339,7 @@ function renderScenarioPriorityTable(merged) {
             <td><strong style="color:#f1f5f9;">${zone.priority_score}</strong></td>
             <td><span class="${tierClass}">${zone.risk.risk_tier}</span></td>
             <td style="color:${warnColor};">${zone.warning.WARNING}</td>
-            <td>${zone.forecast.peak_kw} kW <span style="color:var(--text-muted);">@ ${String(zone.forecast.peak_hour).padStart(2, '0')}:00</span></td>
+            <td>${zone.forecast.peak_kw} kW/home${zoneTotalNote(zone.forecast.peak_kw, zone.households)} <span style="color:var(--text-muted);">@ ${String(zone.forecast.peak_hour).padStart(2, '0')}:00</span></td>
             <td style="font-family:'Inter',sans-serif; font-size:0.82rem; color:var(--text-secondary);">${zone.action}</td>
         `;
         tbody.appendChild(tr);
@@ -331,13 +365,17 @@ function renderWorstDayTable(rows) {
     if (!tbody) return;
     tbody.innerHTML = '';
 
+    const householdsByZone = {};
+    microzoneZoneData.forEach(z => { householdsByZone[z.zone] = z.households; });
+
     rows.forEach(r => {
+        const households = householdsByZone[r.zone];
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td>${r.name}</td>
-            <td>${r.worst_observed_peak_kw} kW</td>
+            <td>${r.worst_observed_peak_kw} kW/home${zoneTotalNote(r.worst_observed_peak_kw, households)}</td>
             <td>${r.worst_day}</td>
-            <td>${r.risk_adj_peak_if_repeated_kw} kW</td>
+            <td>${r.risk_adj_peak_if_repeated_kw} kW/home${zoneTotalNote(r.risk_adj_peak_if_repeated_kw, households)}</td>
             <td><span class="tier-pill tier-${r.tier_if_repeated.toLowerCase()}">${r.tier_if_repeated}</span></td>
         `;
         tbody.appendChild(tr);
@@ -354,13 +392,16 @@ function renderHistoricalValidation(validation) {
         `Does the ranking flag the zone that actually recorded the largest peak that day?`;
 
     tbody.innerHTML = '';
+    const householdsByZone = {};
+    microzoneZoneData.forEach(z => { householdsByZone[z.zone] = z.households; });
+
     validation.zones.forEach(r => {
         const isTop = r.zone === validation.top_zone;
         const tr = document.createElement('tr');
         if (isTop) tr.style.background = 'rgba(0,212,255,0.07)';
         tr.innerHTML = `
             <td>${r.name}${isTop ? ' <span style="color:#00d4ff;font-size:0.72rem;">ACTUAL PEAK</span>' : ''}</td>
-            <td>${r.actual_peak_kw} kW</td>
+            <td>${r.actual_peak_kw} kW/home${zoneTotalNote(r.actual_peak_kw, householdsByZone[r.zone])}</td>
             <td>${String(r.peak_hour).padStart(2, '0')}:00</td>
             <td>${r.pctile_vs_own_history}%</td>
             <td><span class="tier-pill tier-${r.tier_that_day.toLowerCase()}">${r.tier_that_day}</span></td>

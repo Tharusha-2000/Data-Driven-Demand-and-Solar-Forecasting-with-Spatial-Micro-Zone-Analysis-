@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-25T07:23:34.448201+00:00",
+  "generated_at": "2026-07-29T22:16:47.275431+00:00",
   "map_center": {
     "lat": 6.867943171280885,
     "lon": 79.89586947269713
@@ -10,8 +10,8 @@
       "name": "Zone 0",
       "households": 64,
       "area_km2": 1.165,
-      "avg_mean_kw": 0.189,
-      "avg_peak_kw": 1.11,
+      "avg_mean_kw": 0.249,
+      "avg_peak_kw": 1.458,
       "centroid": {
         "lat": 6.859466922861737,
         "lon": 79.89940655781871
@@ -68,8 +68,8 @@
       "name": "Zone 1",
       "households": 172,
       "area_km2": 2.158,
-      "avg_mean_kw": 0.229,
-      "avg_peak_kw": 1.198,
+      "avg_mean_kw": 0.301,
+      "avg_peak_kw": 1.574,
       "centroid": {
         "lat": 6.8721491227202245,
         "lon": 79.89860653456469
@@ -138,8 +138,8 @@
       "name": "Zone 2",
       "households": 112,
       "area_km2": 2.484,
-      "avg_mean_kw": 0.221,
-      "avg_peak_kw": 1.157,
+      "avg_mean_kw": 0.291,
+      "avg_peak_kw": 1.52,
       "centroid": {
         "lat": 6.866327602095699,
         "lon": 79.8896449361882

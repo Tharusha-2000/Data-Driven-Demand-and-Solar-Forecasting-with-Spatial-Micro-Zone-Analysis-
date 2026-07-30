@@ -1,28 +1,28 @@
 {
-  "generated_at": "2026-07-25T07:23:34.448201+00:00",
+  "generated_at": "2026-07-29T22:16:47.275431+00:00",
   "worst_day_replay": [
     {
       "zone": 1,
       "name": "Zone 1",
-      "worst_observed_peak_kw": 0.393,
+      "worst_observed_peak_kw": 0.517,
       "worst_day": "2026-03-26",
-      "risk_adj_peak_if_repeated_kw": 0.421,
+      "risk_adj_peak_if_repeated_kw": 0.553,
       "tier_if_repeated": "High"
     },
     {
       "zone": 2,
       "name": "Zone 2",
-      "worst_observed_peak_kw": 0.383,
+      "worst_observed_peak_kw": 0.503,
       "worst_day": "2026-04-07",
-      "risk_adj_peak_if_repeated_kw": 0.412,
+      "risk_adj_peak_if_repeated_kw": 0.542,
       "tier_if_repeated": "High"
     },
     {
       "zone": 0,
       "name": "Zone 0",
-      "worst_observed_peak_kw": 0.342,
+      "worst_observed_peak_kw": 0.45,
       "worst_day": "2026-04-07",
-      "risk_adj_peak_if_repeated_kw": 0.382,
+      "risk_adj_peak_if_repeated_kw": 0.501,
       "tier_if_repeated": "High"
     }
   ],
@@ -32,7 +32,7 @@
       {
         "zone": 2,
         "name": "Zone 2",
-        "actual_peak_kw": 0.383,
+        "actual_peak_kw": 0.503,
         "peak_hour": 23,
         "pctile_vs_own_history": 100.0,
         "tier_that_day": "High"
@@ -40,7 +40,7 @@
       {
         "zone": 1,
         "name": "Zone 1",
-        "actual_peak_kw": 0.374,
+        "actual_peak_kw": 0.491,
         "peak_hour": 23,
         "pctile_vs_own_history": 97.4,
         "tier_that_day": "High"
@@ -48,7 +48,7 @@
       {
         "zone": 0,
         "name": "Zone 0",
-        "actual_peak_kw": 0.342,
+        "actual_peak_kw": 0.45,
         "peak_hour": 22,
         "pctile_vs_own_history": 100.0,
         "tier_that_day": "High"
